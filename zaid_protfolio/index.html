@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaid Shaikh — Developer World | Software Engineer Portfolio</title>
+  <meta name="description" content="Zaid Shaikh — B.Tech EXTC student at SPIT Mumbai. Software development, embedded systems, IoT and AI/ML projects, in a voxel-inspired developer world.">
+  <meta name="theme-color" content="#0a0e14">
+  <meta property="og:title" content="Zaid Shaikh — Developer World | Software Engineer Portfolio">
+  <meta property="og:description" content="Zaid Shaikh — B.Tech EXTC student at SPIT Mumbai. Software development, embedded systems, IoT and AI/ML projects, in a voxel-inspired developer world.">
+  <meta property="og:type" content="website">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="night" class="page-home">
+
+  <!-- ============================= -->
+  <!-- THEME SWITCHER                 -->
+  <!-- ============================= -->
+  <div class="theme-switcher" data-theme-switcher>
+    <button
+      class="theme-switcher__btn"
+      type="button"
+      data-theme-toggle
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-label="Select color theme">
+      <span class="theme-switcher__icon" aria-hidden="true">🎨</span>
+      <span class="theme-switcher__label">Theme</span>
+      <ion-icon name="chevron-down" class="theme-switcher__chevron" aria-hidden="true"></ion-icon>
+    </button>
+
+    <ul class="theme-switcher__menu" data-theme-menu role="listbox" aria-label="Color themes" tabindex="-1">
+      <li class="theme-switcher__menu-title" role="presentation">Select Theme</li>
+      <li role="option" data-theme-option="night" aria-selected="true">
+        <button type="button" class="theme-switcher__option" data-theme-value="night">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌙</span>
+          <span class="theme-switcher__option-label">Night</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="day" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="day">
+          <span class="theme-switcher__option-icon" aria-hidden="true">☀️</span>
+          <span class="theme-switcher__option-label">Day</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="neon" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="neon">
+          <span class="theme-switcher__option-icon" aria-hidden="true">💜</span>
+          <span class="theme-switcher__option-label">Neon</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="forest" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="forest">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌲</span>
+          <span class="theme-switcher__option-label">Forest</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="ice" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="ice">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🧊</span>
+          <span class="theme-switcher__option-label">Ice</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="dark" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="dark">
+          <span class="theme-switcher__option-icon" aria-hidden="true">⚫</span>
+          <span class="theme-switcher__option-label">Dark</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============================= -->
+  <!-- VOXEL WORLD BACKGROUND        -->
+  <!-- ============================= -->
+  <div class="voxel-bg" aria-hidden="true">
+    <div class="voxel-bg__sky"></div>
+    <div class="voxel-bg__grid" data-voxel-grid></div>
+    <div class="voxel-bg__stars"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--far"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--near"></div>
+    <div class="voxel-bg__ground"></div>
+
+    <div class="voxel-cube voxel-cube--1"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--2"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--3"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--4"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- START SCREEN                  -->
+  <!-- ============================= -->
+  <div class="start-screen" data-start-screen>
+    <div class="start-screen__content">
+      <p class="start-screen__eyebrow" data-start-status>INITIALIZING WORLD...</p>
+
+      <div class="start-screen__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="World loading progress">
+        <div class="start-screen__bar-fill" data-start-bar></div>
+      </div>
+      <p class="start-screen__percent" data-start-percent>0%</p>
+
+      <p class="start-screen__detected" data-start-detected>PLAYER DETECTED</p>
+      <h1 class="start-screen__name" data-start-name>ZAID SHAIKH</h1>
+
+      <div class="start-screen__actions" data-start-actions>
+        <button class="btn btn--primary" data-enter-world>Enter World</button>
+        <button class="btn btn--ghost" data-skip-intro>Skip Intro</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- MAIN GAME SHELL                -->
+  <!-- ============================= -->
+  <main class="game-shell" data-game-shell>
+
+    <!-- PLAYER PROFILE CARD -->
+    <aside class="player-card card-3d" data-sidebar>
+      <div class="card-3d__inner">
+        <div class="card-3d__glass"></div>
+        <div class="card-3d__decor" aria-hidden="true">
+          <span class="card-3d__orb card-3d__orb--a"></span>
+          <span class="card-3d__orb card-3d__orb--b"></span>
+        </div>
+        <div class="card-3d__content">
+
+          <div class="player-card__head">
+
+            <figure class="player-card__avatar">
+              <img src="./assets/images/my-avatar.png" alt="Zaid Shaikh" width="80">
+            </figure>
+
+            <div class="player-card__id">
+              <p class="player-card__label">Player Profile</p>
+              <h1 class="player-card__name">ZAID SHAIKH</h1>
+              <p class="player-card__title">Aspiring Software Development Engineer</p>
+            </div>
+
+            <button class="player-card__toggle" data-sidebar-btn aria-expanded="false">
+              <span>Stats</span>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="player-card__body">
+
+            <div class="player-card__level-row">
+              <span class="tag tag--gold">Level · Developer</span>
+            </div>
+
+            <div class="xp-block">
+              <div class="xp-block__label">
+                <span>XP</span>
+                <span>92%</span>
+              </div>
+              <div class="xp-bar">
+                <div class="xp-bar__fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__stats">
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="mail-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Email</p>
+                  <a href="mailto:iamzaidshaikh2005@gmail.com" class="player-card__stat-value">iamzaidshaikh2005@gmail.com</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Phone</p>
+                  <a href="tel:+917977147756" class="player-card__stat-value">+91 7977147756</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="school-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Education</p>
+                  <p class="player-card__stat-value">B.Tech EXTC, SPIT (Exp. 2028)</p>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="location-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Location</p>
+                  <address class="player-card__stat-value">Mumbai, Maharashtra, India</address>
+                </div>
+              </li>
+
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__links">
+              <li>
+                <a href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+                  <ion-icon name="logo-github"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/zaid-shaikh-2OO5" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- HUD NAVIGATION -->
+      <nav class="hud-nav">
+        <ul class="hud-nav__list">
+          <li><a href="index.html" class="hud-nav__link active" aria-current="page">World</a></li>
+          <li><a href="about.html" class="hud-nav__link">About</a></li>
+          <li><a href="resume.html" class="hud-nav__link">Quest Log</a></li>
+          <li><a href="projects.html" class="hud-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="hud-nav__link">Comms</a></li>
+        </ul>
+      </nav>
+
+
+      <!-- ============================= -->
+      <!-- WORLD / LANDING                -->
+      <!-- ============================= -->
+      <article class="page active" data-page="world">
+
+        <header class="page__header">
+          <h2 class="page__title">Welcome, Player</h2>
+          <p class="page__subtitle">The developer world of Zaid Shaikh — software, embedded systems & intelligent technology.</p>
+        </header>
+
+        <section class="lore-text">
+          <p>
+            I'm Zaid Shaikh, a B.Tech student in Electronics & Telecommunication Engineering at Sardar Patel
+            Institute of Technology (SPIT), Mumbai, building projects across software development, embedded
+            systems, IoT, and AI/ML. This world is a map of that work — pick a path below to explore it.
+          </p>
+        </section>
+
+        <a href="about.html" class="btn btn--primary" style="margin-bottom: 30px;">
+          <ion-icon name="compass-outline"></ion-icon>
+          <span>Explore Portfolio</span>
+        </a>
+
+        <section class="explore">
+
+          <h3 class="section-heading">Explore the World</h3>
+
+          <ul class="explore-grid">
+
+            <li class="explore-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                    <a href="about.html" class="explore-card__link">
+                    <div class="explore-card__icon"><ion-icon name="person-outline"></ion-icon></div>
+                    <h4 class="explore-card__title">About</h4>
+                    <p class="explore-card__text">Meet the player — class, specialization, mission & abilities.</p>
+                    </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="explore-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                    <a href="resume.html" class="explore-card__link">
+                    <div class="explore-card__icon"><ion-icon name="book-outline"></ion-icon></div>
+                    <h4 class="explore-card__title">Quest Log</h4>
+                    <p class="explore-card__text">Education, experience, skill tree & achievements unlocked.</p>
+                    </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="explore-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                    <a href="projects.html" class="explore-card__link">
+                    <div class="explore-card__icon"><ion-icon name="planet-outline"></ion-icon></div>
+                    <h4 class="explore-card__title">Projects</h4>
+                    <p class="explore-card__text">MedIntel, ParkFlow, LiFiLink — explored project worlds.</p>
+                    </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="explore-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                    <a href="contact.html" class="explore-card__link">
+                    <div class="explore-card__icon"><ion-icon name="chatbubbles-outline"></ion-icon></div>
+                    <h4 class="explore-card__title">Comms</h4>
+                    <p class="explore-card__text">Open a channel — email, phone, GitHub & LinkedIn.</p>
+                    </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </section>
+
+      </article>
+
+
+    </div>
+
+  </main>
+
+  <!-- scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

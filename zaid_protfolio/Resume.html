@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaid Shaikh — Resume | Software Developer</title>
+  <meta name="description" content="Zaid Shaikh's quest log — education, experience, skill tree and achievements as a software developer specializing in embedded systems, IoT and AI/ML.">
+  <meta name="theme-color" content="#0a0e14">
+  <meta property="og:title" content="Zaid Shaikh — Resume | Software Developer">
+  <meta property="og:description" content="Zaid Shaikh's quest log — education, experience, skill tree and achievements as a software developer specializing in embedded systems, IoT and AI/ML.">
+  <meta property="og:type" content="website">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="night" class="page-resume">
+
+  <!-- ============================= -->
+  <!-- THEME SWITCHER                 -->
+  <!-- ============================= -->
+  <div class="theme-switcher" data-theme-switcher>
+    <button
+      class="theme-switcher__btn"
+      type="button"
+      data-theme-toggle
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-label="Select color theme">
+      <span class="theme-switcher__icon" aria-hidden="true">🎨</span>
+      <span class="theme-switcher__label">Theme</span>
+      <ion-icon name="chevron-down" class="theme-switcher__chevron" aria-hidden="true"></ion-icon>
+    </button>
+
+    <ul class="theme-switcher__menu" data-theme-menu role="listbox" aria-label="Color themes" tabindex="-1">
+      <li class="theme-switcher__menu-title" role="presentation">Select Theme</li>
+      <li role="option" data-theme-option="night" aria-selected="true">
+        <button type="button" class="theme-switcher__option" data-theme-value="night">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌙</span>
+          <span class="theme-switcher__option-label">Night</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="day" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="day">
+          <span class="theme-switcher__option-icon" aria-hidden="true">☀️</span>
+          <span class="theme-switcher__option-label">Day</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="neon" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="neon">
+          <span class="theme-switcher__option-icon" aria-hidden="true">💜</span>
+          <span class="theme-switcher__option-label">Neon</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="forest" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="forest">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌲</span>
+          <span class="theme-switcher__option-label">Forest</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="ice" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="ice">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🧊</span>
+          <span class="theme-switcher__option-label">Ice</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="dark" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="dark">
+          <span class="theme-switcher__option-icon" aria-hidden="true">⚫</span>
+          <span class="theme-switcher__option-label">Dark</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============================= -->
+  <!-- VOXEL WORLD BACKGROUND        -->
+  <!-- ============================= -->
+  <div class="voxel-bg" aria-hidden="true">
+    <div class="voxel-bg__sky"></div>
+    <div class="voxel-bg__grid" data-voxel-grid></div>
+    <div class="voxel-bg__stars"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--far"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--near"></div>
+    <div class="voxel-bg__ground"></div>
+
+    <div class="voxel-cube voxel-cube--1"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--2"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--3"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--4"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- MAIN GAME SHELL                -->
+  <!-- ============================= -->
+  <main class="game-shell" data-game-shell>
+
+    <!-- PLAYER PROFILE CARD -->
+    <aside class="player-card card-3d" data-sidebar>
+      <div class="card-3d__inner">
+        <div class="card-3d__glass"></div>
+        <div class="card-3d__decor" aria-hidden="true">
+          <span class="card-3d__orb card-3d__orb--a"></span>
+          <span class="card-3d__orb card-3d__orb--b"></span>
+        </div>
+        <div class="card-3d__content">
+
+          <div class="player-card__head">
+
+            <figure class="player-card__avatar">
+              <img src="./assets/images/my-avatar.png" alt="Zaid Shaikh" width="80">
+            </figure>
+
+            <div class="player-card__id">
+              <p class="player-card__label">Player Profile</p>
+              <h1 class="player-card__name">ZAID SHAIKH</h1>
+              <p class="player-card__title">Aspiring Software Development Engineer</p>
+            </div>
+
+            <button class="player-card__toggle" data-sidebar-btn aria-expanded="false">
+              <span>Stats</span>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="player-card__body">
+
+            <div class="player-card__level-row">
+              <span class="tag tag--gold">Level · Developer</span>
+            </div>
+
+            <div class="xp-block">
+              <div class="xp-block__label">
+                <span>XP</span>
+                <span>92%</span>
+              </div>
+              <div class="xp-bar">
+                <div class="xp-bar__fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__stats">
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="mail-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Email</p>
+                  <a href="mailto:iamzaidshaikh2005@gmail.com" class="player-card__stat-value">iamzaidshaikh2005@gmail.com</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Phone</p>
+                  <a href="tel:+917977147756" class="player-card__stat-value">+91 7977147756</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="school-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Education</p>
+                  <p class="player-card__stat-value">B.Tech EXTC, SPIT (Exp. 2028)</p>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="location-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Location</p>
+                  <address class="player-card__stat-value">Mumbai, Maharashtra, India</address>
+                </div>
+              </li>
+
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__links">
+              <li>
+                <a href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+                  <ion-icon name="logo-github"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/zaid-shaikh-2OO5" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- HUD NAVIGATION -->
+      <nav class="hud-nav">
+        <ul class="hud-nav__list">
+          <li><a href="index.html" class="hud-nav__link">World</a></li>
+          <li><a href="about.html" class="hud-nav__link">About</a></li>
+          <li><a href="resume.html" class="hud-nav__link active" aria-current="page">Quest Log</a></li>
+          <li><a href="projects.html" class="hud-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="hud-nav__link">Comms</a></li>
+        </ul>
+      </nav>
+
+
+      <!-- ============================= -->
+      <!-- QUEST LOG / RESUME             -->
+      <!-- ============================= -->
+      <article class="page active" data-page="resume">
+
+        <header class="page__header">
+          <h2 class="page__title">Quest Log</h2>
+          <p class="page__subtitle">Character progression — education, experience & achievements.</p>
+        </header>
+
+        <section class="quest-section">
+          <h3 class="section-heading section-heading--icon">
+            <ion-icon name="book-outline"></ion-icon> Education
+          </h3>
+
+          <ol class="quest-list">
+
+            <li class="quest-item card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="quest-item__marker"><ion-icon name="checkmark-circle"></ion-icon></div>
+                  <div class="quest-item__body">
+                    <h4 class="quest-item__title">B.Tech, Electronics & Telecommunication Engineering (Minor in Computer Engineering)</h4>
+                    <span class="quest-item__meta">Nov 2025 — Nov 2028 (Expected)</span>
+                    <p class="quest-item__text">
+                      Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology, Mumbai. CGPA: 9.47/10.0 (EXTC, through Semester 4); Minor CGPA: 9.00/10.0.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="quest-item card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="quest-item__marker"><ion-icon name="checkmark-circle"></ion-icon></div>
+                  <div class="quest-item__body">
+                    <h4 class="quest-item__title">Diploma, Electronics & Telecommunication Engineering</h4>
+                    <span class="quest-item__meta">2022 — May 2025</span>
+                    <p class="quest-item__text">
+                      SVKM's Shri Bhagubhai Mafatlal Polytechnic and College of Engineering, Mumbai. 1st Rank in College.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="quest-section">
+          <h3 class="section-heading section-heading--icon">
+            <ion-icon name="briefcase-outline"></ion-icon> Experience
+          </h3>
+
+          <ol class="quest-list">
+
+            <li class="quest-item card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="quest-item__marker"><ion-icon name="checkmark-circle"></ion-icon></div>
+                  <div class="quest-item__body">
+                    <h4 class="quest-item__title">Research & Development Intern</h4>
+                    <span class="quest-item__meta">May 2024 — Nov 2024</span>
+                    <p class="quest-item__text">
+                      A-1 Fence Products Pvt. Ltd., Mumbai. Developed the software interface for a perimeter security and intrusion detection prototype, including real-time sensor monitoring, alert generation, and geolocation visualization, and integrated the software-hardware stack into a portable demo unit.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="quest-section">
+          <h3 class="section-heading section-heading--icon">
+            <ion-icon name="layers-outline"></ion-icon> Skill Tree
+          </h3>
+
+          <ul class="skill-grid">
+
+            <li class="skill-slot card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="skill-slot__head">
+                    <span class="skill-slot__name">Python / Java / C / C++ / JS</span>
+                    <span class="skill-slot__level">Lvl 90</span>
+                  </div>
+                  <div class="xp-bar xp-bar--slot"><div class="xp-bar__fill" style="width: 90%;"></div></div>
+                  <p class="skill-slot__tip">Core languages for backend, scripting & DSA.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="skill-slot card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="skill-slot__head">
+                    <span class="skill-slot__name">Django / Flask</span>
+                    <span class="skill-slot__level">Lvl 85</span>
+                  </div>
+                  <div class="xp-bar xp-bar--slot"><div class="xp-bar__fill" style="width: 85%;"></div></div>
+                  <p class="skill-slot__tip">Backend frameworks & REST APIs.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="skill-slot card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="skill-slot__head">
+                    <span class="skill-slot__name">Embedded / IoT</span>
+                    <span class="skill-slot__level">Lvl 85</span>
+                  </div>
+                  <div class="xp-bar xp-bar--slot"><div class="xp-bar__fill" style="width: 85%;"></div></div>
+                  <p class="skill-slot__tip">ESP32, Raspberry Pi, PIC, ARM, STM32, ATmega, PCB & firmware.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="skill-slot card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="skill-slot__head">
+                    <span class="skill-slot__name">Databases & Tools</span>
+                    <span class="skill-slot__level">Lvl 80</span>
+                  </div>
+                  <div class="xp-bar xp-bar--slot"><div class="xp-bar__fill" style="width: 80%;"></div></div>
+                  <p class="skill-slot__tip">SQL, SQLite, MongoDB, Firebase, Git & GitHub.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="skill-slot card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="skill-slot__head">
+                    <span class="skill-slot__name">Power BI</span>
+                    <span class="skill-slot__level">Lvl 65</span>
+                  </div>
+                  <div class="xp-bar xp-bar--slot"><div class="xp-bar__fill" style="width: 65%;"></div></div>
+                  <p class="skill-slot__tip">Business intelligence & data visualization.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="quest-section">
+          <h3 class="section-heading section-heading--icon">
+            <ion-icon name="trophy-outline"></ion-icon> Achievements Unlocked
+          </h3>
+
+          <ul class="achievement-grid">
+
+            <li class="achievement-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="achievement-card__icon"><ion-icon name="trophy"></ion-icon></div>
+                  <div class="achievement-card__body">
+                    <p class="achievement-card__unlocked">Achievement Unlocked</p>
+                    <h4 class="achievement-card__title">TECHFAIR'25</h4>
+                    <p class="achievement-card__text">2nd Prize — State-Level Technical Paper Presentation</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="achievement-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="achievement-card__icon"><ion-icon name="trophy"></ion-icon></div>
+                  <div class="achievement-card__body">
+                    <p class="achievement-card__unlocked">Achievement Unlocked</p>
+                    <h4 class="achievement-card__title">Top of Class</h4>
+                    <p class="achievement-card__text">1st Rank in College — Diploma in EXTC Engineering, SBMP</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="achievement-card card-3d">
+              <div class="card-3d__inner">
+                <div class="card-3d__glass"></div>
+                <div class="card-3d__decor" aria-hidden="true">
+                  <span class="card-3d__orb card-3d__orb--a"></span>
+                  <span class="card-3d__orb card-3d__orb--b"></span>
+                </div>
+                <div class="card-3d__content">
+                  <div class="achievement-card__icon"><ion-icon name="trophy"></ion-icon></div>
+                  <div class="achievement-card__body">
+                    <p class="achievement-card__unlocked">Achievement Unlocked</p>
+                    <h4 class="achievement-card__title">Samarthya 2026</h4>
+                    <p class="achievement-card__text">National Level Project Competition</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+
+    </div>
+
+  </main>
+
+  <!-- scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

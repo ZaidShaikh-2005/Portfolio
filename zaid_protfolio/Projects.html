@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaid Shaikh — Projects | Software & IoT</title>
+  <meta name="description" content="Explore Zaid Shaikh's projects — MedIntel, ParkFlow and LiFiLink — spanning AI/ML healthcare, Django IoT platforms and embedded Li-Fi communication.">
+  <meta name="theme-color" content="#0a0e14">
+  <meta property="og:title" content="Zaid Shaikh — Projects | Software & IoT">
+  <meta property="og:description" content="Explore Zaid Shaikh's projects — MedIntel, ParkFlow and LiFiLink — spanning AI/ML healthcare, Django IoT platforms and embedded Li-Fi communication.">
+  <meta property="og:type" content="website">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="night" class="page-projects">
+
+  <!-- ============================= -->
+  <!-- THEME SWITCHER                 -->
+  <!-- ============================= -->
+  <div class="theme-switcher" data-theme-switcher>
+    <button
+      class="theme-switcher__btn"
+      type="button"
+      data-theme-toggle
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-label="Select color theme">
+      <span class="theme-switcher__icon" aria-hidden="true">🎨</span>
+      <span class="theme-switcher__label">Theme</span>
+      <ion-icon name="chevron-down" class="theme-switcher__chevron" aria-hidden="true"></ion-icon>
+    </button>
+
+    <ul class="theme-switcher__menu" data-theme-menu role="listbox" aria-label="Color themes" tabindex="-1">
+      <li class="theme-switcher__menu-title" role="presentation">Select Theme</li>
+      <li role="option" data-theme-option="night" aria-selected="true">
+        <button type="button" class="theme-switcher__option" data-theme-value="night">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌙</span>
+          <span class="theme-switcher__option-label">Night</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="day" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="day">
+          <span class="theme-switcher__option-icon" aria-hidden="true">☀️</span>
+          <span class="theme-switcher__option-label">Day</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="neon" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="neon">
+          <span class="theme-switcher__option-icon" aria-hidden="true">💜</span>
+          <span class="theme-switcher__option-label">Neon</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="forest" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="forest">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🌲</span>
+          <span class="theme-switcher__option-label">Forest</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="ice" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="ice">
+          <span class="theme-switcher__option-icon" aria-hidden="true">🧊</span>
+          <span class="theme-switcher__option-label">Ice</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+      <li role="option" data-theme-option="dark" aria-selected="false">
+        <button type="button" class="theme-switcher__option" data-theme-value="dark">
+          <span class="theme-switcher__option-icon" aria-hidden="true">⚫</span>
+          <span class="theme-switcher__option-label">Dark</span>
+          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============================= -->
+  <!-- VOXEL WORLD BACKGROUND        -->
+  <!-- ============================= -->
+  <div class="voxel-bg" aria-hidden="true">
+    <div class="voxel-bg__sky"></div>
+    <div class="voxel-bg__grid" data-voxel-grid></div>
+    <div class="voxel-bg__stars"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--far"></div>
+    <div class="voxel-bg__mountains voxel-bg__mountains--near"></div>
+    <div class="voxel-bg__ground"></div>
+
+    <div class="voxel-cube voxel-cube--1"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--2"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--3"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+    <div class="voxel-cube voxel-cube--4"><span class="voxel-cube__top"></span><span class="voxel-cube__left"></span><span class="voxel-cube__right"></span></div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- MAIN GAME SHELL                -->
+  <!-- ============================= -->
+  <main class="game-shell" data-game-shell>
+
+    <!-- PLAYER PROFILE CARD -->
+    <aside class="player-card card-3d" data-sidebar>
+      <div class="card-3d__inner">
+        <div class="card-3d__glass"></div>
+        <div class="card-3d__decor" aria-hidden="true">
+          <span class="card-3d__orb card-3d__orb--a"></span>
+          <span class="card-3d__orb card-3d__orb--b"></span>
+        </div>
+        <div class="card-3d__content">
+
+          <div class="player-card__head">
+
+            <figure class="player-card__avatar">
+              <img src="./assets/images/my-avatar.png" alt="Zaid Shaikh" width="80">
+            </figure>
+
+            <div class="player-card__id">
+              <p class="player-card__label">Player Profile</p>
+              <h1 class="player-card__name">ZAID SHAIKH</h1>
+              <p class="player-card__title">Aspiring Software Development Engineer</p>
+            </div>
+
+            <button class="player-card__toggle" data-sidebar-btn aria-expanded="false">
+              <span>Stats</span>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="player-card__body">
+
+            <div class="player-card__level-row">
+              <span class="tag tag--gold">Level · Developer</span>
+            </div>
+
+            <div class="xp-block">
+              <div class="xp-block__label">
+                <span>XP</span>
+                <span>92%</span>
+              </div>
+              <div class="xp-bar">
+                <div class="xp-bar__fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__stats">
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="mail-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Email</p>
+                  <a href="mailto:iamzaidshaikh2005@gmail.com" class="player-card__stat-value">iamzaidshaikh2005@gmail.com</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Phone</p>
+                  <a href="tel:+917977147756" class="player-card__stat-value">+91 7977147756</a>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="school-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Education</p>
+                  <p class="player-card__stat-value">B.Tech EXTC, SPIT (Exp. 2028)</p>
+                </div>
+              </li>
+
+              <li class="player-card__stat">
+                <div class="stat-icon"><ion-icon name="location-outline"></ion-icon></div>
+                <div class="player-card__stat-text">
+                  <p class="player-card__stat-label">Location</p>
+                  <address class="player-card__stat-value">Mumbai, Maharashtra, India</address>
+                </div>
+              </li>
+
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="player-card__links">
+              <li>
+                <a href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+                  <ion-icon name="logo-github"></ion-icon>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/zaid-shaikh-2OO5" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- HUD NAVIGATION -->
+      <nav class="hud-nav">
+        <ul class="hud-nav__list">
+          <li><a href="index.html" class="hud-nav__link">World</a></li>
+          <li><a href="about.html" class="hud-nav__link">About</a></li>
+          <li><a href="resume.html" class="hud-nav__link">Quest Log</a></li>
+          <li><a href="projects.html" class="hud-nav__link active" aria-current="page">Projects</a></li>
+          <li><a href="contact.html" class="hud-nav__link">Comms</a></li>
+        </ul>
+      </nav>
+
+
+      <!-- ============================= -->
+      <!-- PROJECTS / PORTFOLIO           -->
+      <!-- ============================= -->
+      <article class="page active" data-page="portfolio">
+
+        <header class="page__header">
+          <h2 class="page__title">Project Worlds</h2>
+          <p class="page__subtitle">Explored worlds — select one to enter.</p>
+        </header>
+
+        <section class="worlds">
+
+          <ul class="filter-list">
+            <li><button class="filter-list__btn active" data-filter-btn data-filter="all">All Worlds</button></li>
+            <li><button class="filter-list__btn" data-filter-btn data-filter="iot & embedded">IoT & Embedded</button></li>
+            <li><button class="filter-list__btn" data-filter-btn data-filter="web development">Web Development</button></li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select aria-haspopup="listbox" aria-expanded="false">
+              <span data-select-value>All Worlds</span>
+              <ion-icon name="chevron-down" class="select-icon"></ion-icon>
+            </button>
+            <ul class="select-list">
+              <li><button data-select-item data-filter="all">All Worlds</button></li>
+              <li><button data-select-item data-filter="iot & embedded">IoT & Embedded</button></li>
+              <li><button data-select-item data-filter="web development">Web Development</button></li>
+            </ul>
+          </div>
+
+          <ul class="world-list">
+
+            <li class="world-card active card-3d" data-filter-item data-category="web development">
+              <span class="world-card__tag">World 01</span>
+              <a href="https://github.com/ZaidShaikh-2005/smart_healthcare_system.git" target="_blank" rel="noopener" class="world-card__anchor">
+                <div class="card-3d__inner">
+                  <figure class="world-card__img">
+                    <img src="./assets/images/project-1.jpg" alt="MedIntel" loading="lazy">
+                    <span class="world-card__enter"><ion-icon name="log-in-outline"></ion-icon> Enter Project</span>
+                  </figure>
+                  <div class="world-card__panel">
+                    <div class="card-3d__glass"></div>
+                    <div class="card-3d__decor" aria-hidden="true">
+                      <span class="card-3d__orb card-3d__orb--a"></span>
+                      <span class="card-3d__orb card-3d__orb--b"></span>
+                    </div>
+                    <div class="world-card__body card-3d__content">
+                      <h3 class="world-card__title">MedIntel</h3>
+                      <p class="world-card__desc">AI-Powered Remote Healthcare & Patient Monitoring Platform. Real-time and historical monitoring of vitals, with an AI disease-prediction module (91.7% accuracy) and Kimi-K2.6/Ollama-powered health explanations.</p>
+                      <ul class="chip-list">
+                        <li class="chip">Python</li>
+                        <li class="chip">Django REST</li>
+                        <li class="chip">SQL</li>
+                        <li class="chip">JavaScript</li>
+                        <li class="chip">AI/ML</li>
+                        <li class="chip">MQTT</li>
+                      </ul>
+                      <span class="world-card__cta"><ion-icon name="log-in-outline"></ion-icon> View project</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="world-card active card-3d" data-filter-item data-category="iot & embedded">
+              <span class="world-card__tag">World 02</span>
+              <a href="https://github.com/ZaidShaikh-2005/parking-management-system.git" target="_blank" rel="noopener" class="world-card__anchor">
+                <div class="card-3d__inner">
+                  <figure class="world-card__img">
+                    <img src="./assets/images/project-2.png" alt="ParkFlow" loading="lazy">
+                    <span class="world-card__enter"><ion-icon name="log-in-outline"></ion-icon> Enter Project</span>
+                  </figure>
+                  <div class="world-card__panel">
+                    <div class="card-3d__glass"></div>
+                    <div class="card-3d__decor" aria-hidden="true">
+                      <span class="card-3d__orb card-3d__orb--a"></span>
+                      <span class="card-3d__orb card-3d__orb--b"></span>
+                    </div>
+                    <div class="world-card__body card-3d__content">
+                      <h3 class="world-card__title">ParkFlow</h3>
+                      <p class="world-card__desc">Intelligent Parking Management & Reservation Platform. Django + REST API platform for vehicle registration, slot allocation, reservations, and admin dashboards, synced with ESP32/MQTT hardware. Commercially licensed for INR 7,000.</p>
+                      <ul class="chip-list">
+                        <li class="chip">Python</li>
+                        <li class="chip">Django</li>
+                        <li class="chip">SQL</li>
+                        <li class="chip">ESP32</li>
+                        <li class="chip">MQTT</li>
+                      </ul>
+                      <span class="world-card__cta"><ion-icon name="log-in-outline"></ion-icon> View project</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="world-card active card-3d" data-filter-item data-category="iot & embedded">
+              <span class="world-card__tag">World 03</span>
+              <a href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" class="world-card__anchor">
+                <div class="card-3d__inner">
+                  <figure class="world-card__img">
+                    <img src="./assets/images/project-3.jpg" alt="LiFiLink" loading="lazy">
+                    <span class="world-card__enter"><ion-icon name="log-in-outline"></ion-icon> Enter Project</span>
+                  </figure>
+                  <div class="world-card__panel">
+                    <div class="card-3d__glass"></div>
+                    <div class="card-3d__decor" aria-hidden="true">
+                      <span class="card-3d__orb card-3d__orb--a"></span>
+                      <span class="card-3d__orb card-3d__orb--b"></span>
+                    </div>
+                    <div class="world-card__body card-3d__content">
+                      <h3 class="world-card__title">LiFiLink</h3>
+                      <p class="world-card__desc">Real-Time Optical Wireless Communication System. ESP32-based Li-Fi system with OOK modulation, LED transmission, and a solar-panel receiver for real-time text, image, and video transfer over visible light.</p>
+                      <ul class="chip-list">
+                        <li class="chip">C++</li>
+                        <li class="chip">ESP32</li>
+                        <li class="chip">Li-Fi</li>
+                        <li class="chip">Circuit Design</li>
+                      </ul>
+                      <span class="world-card__cta"><ion-icon name="log-in-outline"></ion-icon> View project</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </section>
+
+      </article>
+
+
+    </div>
+
+  </main>
+
+  <!-- scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>
