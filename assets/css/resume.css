@@ -1,0 +1,143 @@
+/*-----------------------------------*\
+  #resume.css — Zaid Shaikh Developer World
+  Styles used only by resume.html.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+.section-heading--icon ion-icon { font-size: 16px; }
+
+
+/*-----------------------------------*\
+  #QUEST LOG / RESUME PAGE
+\*-----------------------------------*/
+
+.quest-section { margin-bottom: 34px; }
+
+.quest-section:last-child { margin-bottom: 0; }
+
+.quest-list { display: flex; flex-direction: column; gap: 18px; }
+
+.quest-item .card-3d__content {
+  display: flex;
+  gap: 14px;
+}
+
+.quest-item__marker {
+  flex-shrink: 0;
+  color: var(--grass);
+  font-size: 20px;
+  transform: translateZ(10px);
+}
+
+.quest-item__title {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--ink-0);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.quest-item__meta {
+  display: inline-block;
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.quest-item__text {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.skill-slot__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.skill-slot__name {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--ink-0);
+}
+
+.skill-slot__level {
+  font-family: var(--ff-display);
+  font-size: 9px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.xp-bar--slot { margin-bottom: 10px; height: 8px; }
+
+.skill-slot__tip {
+  font-size: var(--fs-tiny);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.achievement-card .card-3d__inner { border-color: var(--gold-dark); }
+.achievement-card .card-3d__content {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.achievement-card__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-block);
+  color: var(--gold);
+  font-size: 20px;
+  transform: translateZ(10px);
+}
+
+.achievement-card__unlocked {
+  font-family: var(--ff-display);
+  font-size: 8px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.achievement-card__title {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--ink-0);
+  margin-bottom: 4px;
+}
+
+.achievement-card__text {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+}
+
+
+@media (min-width: 600px) {
+
+  .achievement-grid { grid-template-columns: 1fr 1fr; }}

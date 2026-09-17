@@ -1,0 +1,231 @@
+/*-----------------------------------*\
+  #projects.css — Zaid Shaikh Developer World
+  Styles used only by projects.html.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cyan);
+  background: hsla(180, 75%, 55%, 0.1);
+  border: 1px solid hsla(180, 60%, 50%, 0.4);
+  padding: 5px 10px;
+  border-radius: var(--radius-block);
+  transition: transform var(--t-fast), border-color var(--t-fast);
+  display: inline-block;
+}
+
+.card-3d .chip { transition: transform var(--t-fast), border-color var(--t-fast); }
+.card-3d:hover .chip { transform: translateY(-2px); border-color: var(--accent-primary); }
+
+
+/*-----------------------------------*\
+  #PORTFOLIO / PROJECT WORLDS
+\*-----------------------------------*/
+
+.filter-list { display: none; }
+
+.filter-select-box {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.filter-select {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--panel-2);
+  color: var(--ink-0);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  padding: 12px 16px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.select-icon { transition: transform var(--t-fast); font-size: 16px; }
+
+.filter-select.active .select-icon { transform: rotate(180deg); }
+
+.select-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  padding: 6px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--t-fast);
+}
+
+.filter-select.active + .select-list {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.select-list button {
+  width: 100%;
+  text-align: left;
+  padding: 9px 10px;
+  font-size: var(--fs-small);
+  color: var(--ink-1);
+  border-radius: 3px;
+}
+
+.select-list button:hover { background: var(--stone); color: var(--ink-0); }
+
+.world-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+
+.world-card { display: none; position: relative; }
+
+.world-card.active {
+  display: block;
+  animation: pageIn 0.3s ease backwards;
+}
+
+.world-card .card-3d__inner { display: flex; flex-direction: column; padding: 0; }
+
+.world-card__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  font-family: var(--ff-display);
+  font-size: 9px;
+  background: var(--void);
+  color: var(--gold);
+  border: 1px solid var(--gold-dark);
+  padding: 6px 8px;
+  border-radius: var(--radius-block);
+}
+
+.world-card__anchor { display: block; height: 100%; }
+
+.world-card__img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--void);
+  flex-shrink: 0;
+}
+
+.world-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-med);
+}
+
+.card-3d:hover .world-card__img img,
+.card-3d:focus-within .world-card__img img { transform: scale(1.08); }
+
+.world-card__enter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: hsla(220, 30%, 6%, 0.72);
+  color: var(--ink-0);
+  font-family: var(--ff-display);
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.card-3d:hover .world-card__enter,
+.card-3d:focus-within .world-card__enter { opacity: 1; }
+
+.world-card__panel { position: relative; flex: 1; min-height: 0; }
+
+.world-card__title {
+  font-family: var(--ff-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink-0);
+  margin-bottom: 10px;
+}
+
+.world-card__desc {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.world-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--ff-display);
+  font-size: 9px;
+  color: var(--accent-primary);
+}
+
+
+/*-----------------------------------*\
+  #RESPONSIVE
+\*-----------------------------------*/
+
+@media (min-width: 480px) {
+
+  .world-card__img { height: 230px; }}
+
+
+@media (min-width: 768px) {
+
+  .filter-select-box { display: none; }
+
+  .filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .filter-list__btn {
+    font-family: var(--ff-display);
+    font-size: 9px;
+    color: var(--ink-2);
+    background: var(--panel-2);
+    border: 1px solid var(--stone-light);
+    border-radius: var(--radius-block);
+    padding: 10px 14px;
+    transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+  }
+
+  .filter-list__btn:hover { color: var(--ink-0); }
+
+  .filter-list__btn.active {
+    color: var(--void);
+    background: var(--grass);
+    border-color: var(--grass);
+  }
+
+  .world-list { grid-template-columns: 1fr 1fr; }}
+
+
+@media (min-width: 1024px) {
+
+  .world-list { grid-template-columns: repeat(2, 1fr); }}

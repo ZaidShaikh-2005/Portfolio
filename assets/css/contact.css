@@ -1,0 +1,147 @@
+/*-----------------------------------*\
+  #contact.css — Zaid Shaikh Developer World
+  Styles used only by contact.html.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+.form-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-btn:disabled:hover {
+  transform: none;
+  box-shadow: var(--shadow-block);
+  background: var(--grass-dark);
+}
+
+/* quiet modifier: fewer decorative orbs, used for dense rows (terminal) */
+.card-3d--quiet .card-3d__orb--b { display: none; }
+.card-3d--quiet .card-3d__orb--a { width: 64px; height: 64px; opacity: 0.28; }
+
+
+/*-----------------------------------*\
+  #CONTACT / COMMAND CENTER
+\*-----------------------------------*/
+
+.terminal .card-3d__content {
+  font-family: 'Share Tech Mono', var(--ff-body), monospace;
+  padding: 16px 18px;
+}
+
+.terminal { margin-bottom: 26px; }
+
+.terminal__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--stone);
+  font-size: var(--fs-small);
+}
+
+.terminal__row:last-child { border-bottom: none; }
+
+.terminal__key {
+  color: var(--grass);
+  font-weight: 700;
+  min-width: 80px;
+  text-transform: uppercase;
+  font-size: var(--fs-tiny);
+  align-self: center;
+}
+
+.terminal__value {
+  color: var(--ink-0);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  word-break: break-word;
+}
+
+.terminal__link { color: var(--cyan); }
+
+.terminal__link:hover { text-decoration: underline; }
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grass);
+  box-shadow: 0 0 8px var(--grass);
+}
+
+.mapbox { margin-bottom: 26px; }
+
+.mapbox .card-3d__content { padding: 8px; }
+
+.mapbox__frame {
+  height: 240px;
+  width: 100%;
+  border-radius: calc(var(--radius-card) - 10px);
+  overflow: hidden;
+}
+
+.mapbox__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(0.92) hue-rotate(180deg);
+}
+
+body[data-theme="day"] .mapbox__frame iframe { filter: grayscale(0.3) contrast(0.95); }
+
+.contact-form .card-3d__content { padding: 20px; }
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-input {
+  color: var(--ink-0);
+  background: var(--panel-2);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  padding: 13px 16px;
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  outline: none;
+}
+
+.form-input::placeholder { color: var(--ink-2); font-weight: 500; }
+
+.form-input:focus { border-color: var(--grass); }
+
+textarea.form-input {
+  min-height: 110px;
+  max-height: 220px;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.form__hint {
+  font-size: var(--fs-tiny);
+  color: var(--ink-2);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.form__status {
+  font-size: var(--fs-tiny);
+  color: var(--grass);
+  margin-top: 12px;
+  min-height: 14px;
+}
+
+
+/*-----------------------------------*\
+  #RESPONSIVE
+\*-----------------------------------*/
+
+@media (min-width: 480px) {
+
+  .form__row { grid-template-columns: 1fr 1fr; }}

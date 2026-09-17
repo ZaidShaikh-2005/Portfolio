@@ -1,0 +1,1407 @@
+/*-----------------------------------*\
+  #common.css — Zaid Shaikh Developer World
+  Shared styles — loaded by every page.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  #style.css — Zaid Shaikh Developer World
+  Voxel/gaming-inspired portfolio theme.
+  6-way theme switcher (Night / Day / Neon / Forest / Ice / Dark)
+  + card-3d glass panel system.
+\*-----------------------------------*/
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTIES — BASE (NIGHT THEME, DEFAULT)
+\*-----------------------------------*/
+
+:root,
+body[data-theme="night"] {
+
+  /* base palette */
+  --void: #0a0d12;
+  --panel: #12161d;
+  --panel-2: #171c24;
+  --stone: #2a323d;
+  --stone-light: #3d4753;
+
+  /* accents */
+  --grass: #5cc25c;
+  --grass-dark: #3f8f3f;
+  --gold: #f0b90b;
+  --gold-dark: #b8890a;
+  --cyan: #3fe0e0;
+  --danger: #e0554f;
+
+  /* text */
+  --ink-0: #eef2f4;
+  --ink-1: #c3ccd4;
+  --ink-2: #8993a1;
+
+  /* glow */
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 16px hsla(112, 55%, 55%, 0.35);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 16px hsla(45, 90%, 55%, 0.35);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 16px hsla(180, 75%, 60%, 0.3);
+  --glow-soft: 0 0 18px hsla(112, 55%, 55%, 0.28);
+
+  /* semantic aliases (referenced by the theme-switcher UI + docs) */
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--gold);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(0, 0%, 0%, 0.45);
+  --glow-color: hsla(112, 55%, 55%, 0.35);
+
+  /* voxel background layers */
+  --sky-gradient:
+    radial-gradient(ellipse 70% 40% at 50% 0%, hsla(220, 55%, 22%, 0.55), transparent 60%),
+    linear-gradient(to bottom, #070a0f 0%, #0c1119 45%, #10161f 75%, #0a0d12 100%);
+  --mountains-far: #151b24;
+  --mountains-near: #1b2330;
+  --ground-gradient: linear-gradient(to bottom, #274522 0%, #16240f 100%);
+  --ground-line: hsla(0, 0%, 0%, 0.25);
+  --ground-border: #3a6b30;
+  --stars-opacity: 0.8;
+  --grid-opacity: 0;
+  --cube-top: var(--grass);
+  --cube-left: var(--grass-dark);
+  --cube-right: #2c5228;
+
+  /* card-3d glass tokens */
+  --glass-hue: 112;
+  --glass-1: hsla(112, 55%, 62%, 0.16);
+  --glass-2: hsla(220, 45%, 8%, 0.55);
+  --glass-edge: hsla(112, 60%, 72%, 0.4);
+  --glass-sheen: hsla(112, 70%, 80%, 0.22);
+  --orb-a: var(--grass);
+  --orb-b: var(--gold);
+  --tilt-max: 9deg;
+
+}
+
+
+/*-----------------------------------*\
+  #THEME — DAY
+\*-----------------------------------*/
+
+body[data-theme="day"] {
+
+  --void: #eaf3fb;
+  --panel: #ffffff;
+  --panel-2: #f3f7fb;
+  --stone: #d7e0e9;
+  --stone-light: #c1ccd8;
+
+  --grass: #2f9e44;
+  --grass-dark: #237a35;
+  --gold: #d98c1f;
+  --gold-dark: #b06f14;
+  --cyan: #0f8fa8;
+  --danger: #c8443c;
+
+  --ink-0: #1b2430;
+  --ink-1: #3c4753;
+  --ink-2: #64707d;
+
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 14px hsla(130, 45%, 40%, 0.22);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 14px hsla(36, 70%, 45%, 0.22);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 14px hsla(190, 60%, 40%, 0.2);
+  --glow-soft: 0 0 14px hsla(130, 45%, 40%, 0.18);
+
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--gold);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(210, 30%, 40%, 0.16);
+  --glow-color: hsla(130, 45%, 40%, 0.2);
+
+  --sky-gradient:
+    radial-gradient(ellipse 70% 45% at 50% 0%, hsla(200, 85%, 82%, 0.9), transparent 65%),
+    linear-gradient(to bottom, #bfe3fb 0%, #d7edfb 40%, #eef7fb 75%, #f5f9ec 100%);
+  --mountains-far: #a9c9db;
+  --mountains-near: #8fb89a;
+  --ground-gradient: linear-gradient(to bottom, #a9d977 0%, #7fb955 100%);
+  --ground-line: hsla(90, 40%, 20%, 0.12);
+  --ground-border: #5d9a3f;
+  --stars-opacity: 0;
+  --grid-opacity: 0;
+  --cube-top: #f4c542;
+  --cube-left: #d9a52b;
+  --cube-right: #b3841c;
+
+  --glass-hue: 130;
+  --glass-1: hsla(0, 0%, 100%, 0.75);
+  --glass-2: hsla(200, 60%, 92%, 0.4);
+  --glass-edge: hsla(0, 0%, 100%, 0.85);
+  --glass-sheen: hsla(130, 60%, 96%, 0.5);
+  --orb-a: var(--grass);
+  --orb-b: var(--cyan);
+  --tilt-max: 7deg;
+
+}
+
+
+/*-----------------------------------*\
+  #THEME — NEON
+\*-----------------------------------*/
+
+body[data-theme="neon"] {
+
+  --void: #08050f;
+  --panel: #120a24;
+  --panel-2: #180f2e;
+  --stone: #331e56;
+  --stone-light: #4a2c78;
+
+  --grass: #b24bff;
+  --grass-dark: #8a2be2;
+  --gold: #ff2fd6;
+  --gold-dark: #c91fab;
+  --cyan: #33f2ff;
+  --danger: #ff4365;
+
+  --ink-0: #f3eaff;
+  --ink-1: #cbb8ec;
+  --ink-2: #9782c2;
+
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 22px hsla(280, 100%, 65%, 0.55);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 22px hsla(310, 100%, 60%, 0.5);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 22px hsla(187, 100%, 60%, 0.5);
+  --glow-soft: 0 0 24px hsla(280, 100%, 65%, 0.4);
+
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--cyan);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(280, 90%, 10%, 0.6);
+  --glow-color: hsla(280, 100%, 65%, 0.45);
+
+  --sky-gradient:
+    radial-gradient(ellipse 60% 40% at 50% 0%, hsla(280, 90%, 30%, 0.5), transparent 65%),
+    linear-gradient(to bottom, #06030d 0%, #0c0620 45%, #120a26 75%, #08050f 100%);
+  --mountains-far: #1c1034;
+  --mountains-near: #241640;
+  --ground-gradient: linear-gradient(to bottom, #1c0f38 0%, #0a0518 100%);
+  --ground-line: hsla(280, 100%, 65%, 0.18);
+  --ground-border: #8a2be2;
+  --stars-opacity: 0.9;
+  --grid-opacity: 0.35;
+  --cube-top: #b24bff;
+  --cube-left: #8a2be2;
+  --cube-right: #5a1a99;
+
+  --glass-hue: 280;
+  --glass-1: hsla(280, 100%, 72%, 0.2);
+  --glass-2: hsla(265, 70%, 8%, 0.55);
+  --glass-edge: hsla(300, 100%, 78%, 0.45);
+  --glass-sheen: hsla(190, 100%, 75%, 0.28);
+  --orb-a: var(--grass);
+  --orb-b: var(--cyan);
+  --tilt-max: 11deg;
+
+}
+
+
+/*-----------------------------------*\
+  #THEME — FOREST
+\*-----------------------------------*/
+
+body[data-theme="forest"] {
+
+  --void: #0c1410;
+  --panel: #141f18;
+  --panel-2: #1a271e;
+  --stone: #33452f;
+  --stone-light: #4a5f3f;
+
+  --grass: #7bb662;
+  --grass-dark: #4f8a3c;
+  --gold: #c9a24a;
+  --gold-dark: #9c7c34;
+  --cyan: #6fae8a;
+  --danger: #c15b42;
+
+  --ink-0: #eef2e6;
+  --ink-1: #c6d1bc;
+  --ink-2: #8fa084;
+
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 16px hsla(100, 40%, 45%, 0.3);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 16px hsla(42, 55%, 50%, 0.3);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 16px hsla(150, 30%, 45%, 0.28);
+  --glow-soft: 0 0 18px hsla(100, 40%, 45%, 0.25);
+
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--gold);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(100, 30%, 5%, 0.5);
+  --glow-color: hsla(100, 40%, 45%, 0.3);
+
+  --sky-gradient:
+    radial-gradient(ellipse 70% 40% at 50% 0%, hsla(90, 35%, 20%, 0.5), transparent 60%),
+    linear-gradient(to bottom, #0a120c 0%, #0f1a12 45%, #121f16 75%, #0c1410 100%);
+  --mountains-far: #1b2a1e;
+  --mountains-near: #223424;
+  --ground-gradient: linear-gradient(to bottom, #2f4a24 0%, #17280f 100%);
+  --ground-line: hsla(30, 30%, 10%, 0.3);
+  --ground-border: #4f8a3c;
+  --stars-opacity: 0.35;
+  --grid-opacity: 0;
+  --cube-top: #7bb662;
+  --cube-left: #4f8a3c;
+  --cube-right: #2c5220;
+
+  --glass-hue: 100;
+  --glass-1: hsla(100, 45%, 58%, 0.16);
+  --glass-2: hsla(140, 40%, 7%, 0.5);
+  --glass-edge: hsla(100, 50%, 68%, 0.35);
+  --glass-sheen: hsla(80, 60%, 78%, 0.2);
+  --orb-a: var(--grass);
+  --orb-b: var(--gold);
+  --tilt-max: 8deg;
+
+}
+
+
+/*-----------------------------------*\
+  #THEME — ICE
+\*-----------------------------------*/
+
+body[data-theme="ice"] {
+
+  --void: #0a141c;
+  --panel: #111f2b;
+  --panel-2: #172835;
+  --stone: #2d4658;
+  --stone-light: #416077;
+
+  --grass: #6fd8ff;
+  --grass-dark: #3ba8d9;
+  --gold: #d6e8f2;
+  --gold-dark: #a9c5d6;
+  --cyan: #7de8ff;
+  --danger: #e0716a;
+
+  --ink-0: #eef7fc;
+  --ink-1: #c1dbe8;
+  --ink-2: #85a7ba;
+
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 18px hsla(195, 90%, 65%, 0.4);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 18px hsla(200, 60%, 85%, 0.35);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 18px hsla(190, 100%, 70%, 0.4);
+  --glow-soft: 0 0 20px hsla(195, 90%, 65%, 0.32);
+
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--cyan);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(200, 60%, 8%, 0.5);
+  --glow-color: hsla(195, 90%, 65%, 0.35);
+
+  --sky-gradient:
+    radial-gradient(ellipse 70% 45% at 50% 0%, hsla(200, 80%, 40%, 0.45), transparent 65%),
+    linear-gradient(to bottom, #071019 0%, #0b1c28 45%, #0f2431 75%, #0a141c 100%);
+  --mountains-far: #16283a;
+  --mountains-near: #1c3345;
+  --ground-gradient: linear-gradient(to bottom, #cfe9f5 0%, #8fbdd4 100%);
+  --ground-line: hsla(200, 40%, 20%, 0.2);
+  --ground-border: #6fd8ff;
+  --stars-opacity: 0.6;
+  --grid-opacity: 0;
+  --cube-top: #eaf8ff;
+  --cube-left: #a8dcf2;
+  --cube-right: #6fb8d9;
+
+  --glass-hue: 195;
+  --glass-1: hsla(195, 90%, 80%, 0.24);
+  --glass-2: hsla(205, 70%, 14%, 0.45);
+  --glass-edge: hsla(195, 90%, 88%, 0.42);
+  --glass-sheen: hsla(195, 100%, 90%, 0.3);
+  --orb-a: var(--grass);
+  --orb-b: var(--cyan);
+  --tilt-max: 8deg;
+
+}
+
+
+/*-----------------------------------*\
+  #THEME — DARK (professional)
+\*-----------------------------------*/
+
+body[data-theme="dark"] {
+
+  --void: #08090b;
+  --panel: #101113;
+  --panel-2: #16181b;
+  --stone: #2a2c30;
+  --stone-light: #3c3f44;
+
+  --grass: #9a8cf0;
+  --grass-dark: #7565d9;
+  --gold: #d9dbe0;
+  --gold-dark: #a9acb4;
+  --cyan: #7bb8e8;
+  --danger: #e0554f;
+
+  --ink-0: #f2f3f5;
+  --ink-1: #c7cad0;
+  --ink-2: #85898f;
+
+  --glow-grass: 0 0 0 1px var(--grass), 0 0 10px hsla(255, 70%, 68%, 0.18);
+  --glow-gold: 0 0 0 1px var(--gold), 0 0 10px hsla(220, 10%, 80%, 0.14);
+  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 10px hsla(205, 65%, 65%, 0.16);
+  --glow-soft: 0 0 12px hsla(255, 70%, 68%, 0.14);
+
+  --bg-primary: var(--void);
+  --bg-secondary: var(--panel);
+  --text-primary: var(--ink-0);
+  --text-secondary: var(--ink-2);
+  --accent-primary: var(--grass);
+  --accent-secondary: var(--cyan);
+  --border-color: var(--stone-light);
+  --card-bg: var(--panel-2);
+  --shadow-color: hsla(0, 0%, 0%, 0.5);
+  --glow-color: hsla(255, 70%, 68%, 0.12);
+
+  --sky-gradient: linear-gradient(to bottom, #050506 0%, #0a0b0d 45%, #101113 75%, #08090b 100%);
+  --mountains-far: #131417;
+  --mountains-near: #18191c;
+  --ground-gradient: linear-gradient(to bottom, #1c1d20 0%, #0e0f11 100%);
+  --ground-line: hsla(0, 0%, 100%, 0.05);
+  --ground-border: #3c3f44;
+  --stars-opacity: 0.25;
+  --grid-opacity: 0;
+  --cube-top: #9a8cf0;
+  --cube-left: #7565d9;
+  --cube-right: #4d43a3;
+
+  --glass-hue: 255;
+  --glass-1: hsla(255, 60%, 74%, 0.12);
+  --glass-2: hsla(230, 15%, 6%, 0.55);
+  --glass-edge: hsla(255, 50%, 76%, 0.25);
+  --glass-sheen: hsla(255, 60%, 85%, 0.16);
+  --orb-a: var(--grass);
+  --orb-b: var(--cyan);
+  --tilt-max: 6deg;
+
+}
+
+
+:root {
+
+  /* typography */
+  --ff-display: 'Press Start 2P', monospace;
+  --ff-body: 'Rajdhani', sans-serif;
+
+  --fs-hero: 30px;
+  --fs-h1: 18px;
+  --fs-h2: 13px;
+  --fs-h3: 11px;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-tiny: 11px;
+
+  /* shape */
+  --radius-block: 4px;
+  --radius-card: 22px;
+  --border-w: 2px;
+
+  /* shadow */
+  --shadow-block: 4px 4px 0 var(--shadow-color);
+  --shadow-block-lg: 6px 6px 0 var(--shadow-color);
+  --shadow-card: 0 30px 40px -22px var(--shadow-color), 0 10px 20px -12px var(--shadow-color);
+  --shadow-card-hover: 0 42px 55px -20px var(--shadow-color), 0 18px 28px -12px var(--shadow-color);
+
+  /* motion */
+  --t-fast: 0.15s ease;
+  --t-med: 0.3s ease;
+  --t-theme: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-card: 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+}
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a { text-decoration: none; color: inherit; }
+
+li { list-style: none; }
+
+img, ion-icon, a, button, time, span { display: block; }
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--grass);
+  color: var(--void);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+html {
+  font-family: var(--ff-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--void);
+  color: var(--ink-1);
+  font-size: var(--fs-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color var(--t-theme), color var(--t-theme);
+}
+
+body.has-lightbox-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }}
+
+/* smoothly cross-fade every themeable surface when data-theme changes */
+body,
+.player-card, .page, .stat-card, .ability-card, .quest-item, .skill-slot,
+.achievement-card, .world-card__link, .terminal, .form-input, .hud-nav,
+.hud-nav__link, .icon-link, .btn, .xp-bar, .xp-bar__fill, .chip, .tag,
+.theme-switcher__btn, .theme-switcher__menu, .theme-switcher__option,
+.voxel-bg__sky, .voxel-bg__mountains, .voxel-bg__ground, .voxel-bg__stars,
+.voxel-bg__grid, .voxel-cube__top, .voxel-cube__left, .voxel-cube__right,
+.select-list, .filter-select, .filter-list__btn, .mapbox__frame,
+.card-3d__inner, .card-3d__glass, .card-3d__orb,
+.avatar-lightbox__frame, .avatar-lightbox__close, .avatar-lightbox__corner {
+  transition:
+    background var(--t-theme),
+    background-color var(--t-theme),
+    color var(--t-theme),
+    border-color var(--t-theme),
+    box-shadow var(--t-theme),
+    opacity var(--t-theme);
+}
+
+
+/*-----------------------------------*\
+  #THEME SWITCHER
+\*-----------------------------------*/
+
+.theme-switcher {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 60;
+}
+
+.theme-switcher__btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--panel);
+  border: var(--border-w) solid var(--stone-light);
+  border-radius: var(--radius-block);
+  padding: 9px 10px;
+  box-shadow: var(--shadow-block);
+  color: var(--ink-0);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast), background var(--t-theme);
+}
+
+.theme-switcher__btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--shadow-color);
+  border-color: var(--grass);
+}
+
+.theme-switcher__icon { font-size: 14px; line-height: 1; }
+
+.theme-switcher__label {
+  font-family: var(--ff-display);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.theme-switcher__chevron {
+  font-size: 12px;
+  transition: transform var(--t-fast);
+}
+
+.theme-switcher.is-open .theme-switcher__chevron { transform: rotate(180deg); }
+
+.theme-switcher__btn {
+  position: relative;
+}
+
+/* small radial "pixel" pulse on theme change */
+.theme-switcher__btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--radius-block);
+  background: radial-gradient(circle, var(--glow-color), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-switcher.is-pulsing .theme-switcher__btn::after {
+  animation: themePulse 500ms ease-out;
+}
+
+@keyframes themePulse {
+  0% { opacity: 0.9; transform: scale(0.6); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+.theme-switcher__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 200px;
+  background: var(--panel);
+  border: var(--border-w) solid var(--stone-light);
+  border-radius: var(--radius-block);
+  box-shadow: var(--shadow-block-lg);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--t-fast), transform var(--t-fast), visibility var(--t-fast), background var(--t-theme);
+}
+
+.theme-switcher.is-open .theme-switcher__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.theme-switcher__menu-title {
+  font-family: var(--ff-display);
+  font-size: 8px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  padding: 8px 8px 12px;
+}
+
+.theme-switcher__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 3px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink-1);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.theme-switcher__option:hover,
+.theme-switcher__option:focus-visible {
+  background: var(--stone);
+  color: var(--ink-0);
+}
+
+.theme-switcher__option-icon { font-size: 15px; line-height: 1; }
+
+.theme-switcher__option-label { flex: 1; text-align: left; }
+
+.theme-switcher__check {
+  font-size: 14px;
+  color: var(--grass);
+  opacity: 0;
+}
+
+[data-theme-option][aria-selected="true"] .theme-switcher__check { opacity: 1; }
+
+[data-theme-option][aria-selected="true"] .theme-switcher__option {
+  color: var(--ink-0);
+  background: var(--panel-2);
+}
+
+@media (max-width: 479px) {
+  .theme-switcher__label { display: none; }
+  .theme-switcher__btn { padding: 9px; }
+  .theme-switcher__menu { width: 180px; right: -4px; }}
+
+
+/*-----------------------------------*\
+  #VOXEL BACKGROUND
+\*-----------------------------------*/
+
+.voxel-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.voxel-bg__sky {
+  position: absolute;
+  inset: 0;
+  background: var(--sky-gradient);
+}
+
+.voxel-bg__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsla(280, 100%, 70%, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsla(280, 100%, 70%, 0.5) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: var(--grid-opacity);
+  mask-image: linear-gradient(to bottom, transparent, black 60%, transparent);
+}
+
+.voxel-bg__stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 15%, hsla(0,0%,100%,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 25% 35%, hsla(0,0%,100%,0.4), transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 10%, hsla(0,0%,100%,0.55), transparent 60%),
+    radial-gradient(1.5px 1.5px at 60% 25%, hsla(0,0%,100%,0.4), transparent 60%),
+    radial-gradient(1.5px 1.5px at 75% 8%, hsla(0,0%,100%,0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 88% 30%, hsla(0,0%,100%,0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 15% 55%, hsla(0,0%,100%,0.3), transparent 60%),
+    radial-gradient(1.5px 1.5px at 95% 60%, hsla(0,0%,100%,0.35), transparent 60%);
+  opacity: var(--stars-opacity);
+}
+
+.voxel-bg__mountains {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+.voxel-bg__mountains--far {
+  height: 32vh;
+  background: var(--mountains-far);
+  clip-path: polygon(
+    0% 100%, 0% 55%, 8% 42%, 16% 58%, 24% 35%, 32% 50%, 40% 30%,
+    48% 48%, 56% 38%, 64% 55%, 72% 40%, 80% 52%, 88% 32%, 96% 50%, 100% 40%, 100% 100%
+  );
+  opacity: 0.85;
+}
+
+.voxel-bg__mountains--near {
+  height: 20vh;
+  background: var(--mountains-near);
+  clip-path: polygon(
+    0% 100%, 0% 70%, 10% 50%, 20% 68%, 30% 45%, 40% 65%, 50% 40%,
+    60% 62%, 70% 48%, 80% 66%, 90% 42%, 100% 60%, 100% 100%
+  );
+}
+
+.voxel-bg__ground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  background:
+    repeating-linear-gradient(90deg, var(--ground-line) 0 2px, transparent 2px 42px),
+    var(--ground-gradient);
+  border-top: 2px solid var(--ground-border);
+}
+
+.voxel-cube {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  transform-style: preserve-3d;
+  animation: floatCube 7s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.voxel-cube span { position: absolute; display: block; }
+
+.voxel-cube__top {
+  width: 34px; height: 34px;
+  background: var(--cube-top);
+  top: -17px;
+  transform: rotateX(90deg) translateZ(17px);
+}
+
+.voxel-cube__left {
+  width: 34px; height: 34px;
+  background: var(--cube-left);
+  transform: translateZ(17px);
+}
+
+.voxel-cube__right {
+  width: 34px; height: 34px;
+  background: var(--cube-right);
+  right: -34px;
+  transform: rotateY(90deg) translateZ(17px);
+}
+
+.voxel-cube--1 { top: 12%; left: 8%; animation-delay: 0s; }
+.voxel-cube--2 { top: 22%; left: 82%; animation-delay: 1.5s; width: 24px; height: 24px; }
+.voxel-cube--3 { top: 8%; left: 45%; animation-delay: 3s; width: 20px; height: 20px; }
+.voxel-cube--4 { top: 30%; left: 65%; animation-delay: 4.5s; }
+
+@keyframes floatCube {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voxel-cube { animation: none; }}
+
+
+/*-----------------------------------*\
+  #TYPOGRAPHY HELPERS
+\*-----------------------------------*/
+
+.page__title,
+.section-heading,
+.start-screen__name,
+.player-card__name,
+.world-card__title,
+.achievement-card__title,
+.stat-card__value,
+.hud-nav__link,
+.btn {
+  font-family: var(--ff-display);
+  letter-spacing: 0.5px;
+}
+
+.page__title { font-size: var(--fs-h1); color: var(--ink-0); line-height: 1.5; }
+
+.section-heading {
+  font-size: var(--fs-h3);
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page__subtitle {
+  color: var(--ink-2);
+  font-size: var(--fs-small);
+  margin-top: 8px;
+}
+
+
+/*-----------------------------------*\
+  #BUTTONS
+\*-----------------------------------*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 11px;
+  padding: 14px 20px;
+  border: var(--border-w) solid var(--ink-0);
+  border-radius: var(--radius-block);
+  background: var(--panel-2);
+  color: var(--ink-0);
+  box-shadow: var(--shadow-block);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+}
+
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow-color); }
+
+.btn:active { transform: translate(0, 0); box-shadow: 1px 1px 0 var(--shadow-color); }
+
+.btn--primary {
+  background: var(--grass-dark);
+  border-color: var(--grass);
+  color: #eafcea;
+}
+
+.btn--primary:hover { background: var(--grass); }
+
+
+/*-----------------------------------*\
+  #TAGS / CHIPS / MISC
+\*-----------------------------------*/
+
+.tag {
+  display: inline-block;
+  font-family: var(--ff-display);
+  font-size: 9px;
+  padding: 6px 10px;
+  border-radius: var(--radius-block);
+  letter-spacing: 0.5px;
+}
+
+.tag--gold {
+  background: hsla(45, 90%, 55%, 0.12);
+  color: var(--gold);
+  border: 1px solid var(--gold-dark);
+}
+
+.divider {
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--stone) 0 6px, transparent 6px 12px);
+  margin: 18px 0;
+}
+
+
+/*-----------------------------------*\
+  #CARD-3D — glass panel system
+  Reusable 3D glassmorphism architecture used by every
+  card-like surface in the site: player card, stat cards,
+  ability cards, quest items, skill slots, achievement
+  cards, project (world) cards, and the contact terminal.
+
+  Structure:
+    .card-3d                 (perspective host)
+      .card-3d__inner         (the panel that rotates)
+        .card-3d__glass       (frosted layer, floats forward)
+        .card-3d__decor       (blurred accent orbs)
+        .card-3d__content     (actual text/UI, floats furthest)
+\*-----------------------------------*/
+
+.card-3d {
+  position: relative;
+  perspective: 1400px;
+}
+
+.card-3d__inner {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-card);
+  background: linear-gradient(165deg, var(--card-bg) 0%, var(--void) 140%);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: rotate3d(1, 0, 0, var(--tilt-x, 0deg)) rotate3d(0, 1, 0, var(--tilt-y, 0deg));
+  transition: transform var(--t-card), box-shadow var(--t-card), border-color var(--t-card);
+}
+
+.card-3d:hover .card-3d__inner,
+.card-3d:focus-within .card-3d__inner {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card-3d__glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(155deg, var(--glass-1) 0%, transparent 48%, var(--glass-2) 100%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-top: 1px solid var(--glass-edge);
+  border-left: 1px solid var(--glass-edge);
+  transform: translate3d(0, 0, 16px);
+  transition: transform var(--t-card);
+  pointer-events: none;
+}
+
+.card-3d__glass::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -18%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glass-sheen), transparent 70%);
+  opacity: 0.85;
+}
+
+.card-3d:hover .card-3d__glass,
+.card-3d:focus-within .card-3d__glass { transform: translate3d(0, 0, 26px); }
+
+.card-3d__decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.card-3d__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(6px);
+  opacity: 0.4;
+  transition: transform var(--t-card), opacity var(--t-card);
+}
+
+.card-3d__orb--a {
+  width: 92px; height: 92px;
+  top: -30px; right: -18px;
+  background: radial-gradient(circle, var(--orb-a), transparent 70%);
+  transform: translate3d(0, 0, 8px);
+}
+
+.card-3d__orb--b {
+  width: 54px; height: 54px;
+  bottom: -16px; left: -10px;
+  background: radial-gradient(circle, var(--orb-b), transparent 70%);
+  transform: translate3d(0, 0, 4px);
+}
+
+.card-3d:hover .card-3d__orb--a,
+.card-3d:focus-within .card-3d__orb--a { transform: translate3d(-6px, 6px, 20px); opacity: 0.6; }
+.card-3d:hover .card-3d__orb--b,
+.card-3d:focus-within .card-3d__orb--b { transform: translate3d(6px, -6px, 14px); opacity: 0.6; }
+
+.card-3d__content {
+  position: relative;
+  transform: translate3d(0, 0, 30px);
+  transition: transform var(--t-card);
+  padding: 18px;
+  height: 100%;
+}
+
+.card-3d:hover .card-3d__content,
+.card-3d:focus-within .card-3d__content { transform: translate3d(0, 0, 46px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d__inner, .card-3d__glass, .card-3d__content, .card-3d__orb { transition: none; }
+  .card-3d:hover .card-3d__inner, .card-3d:focus-within .card-3d__inner { transform: none; box-shadow: var(--shadow-card); }
+  .card-3d:hover .card-3d__glass, .card-3d:focus-within .card-3d__glass,
+  .card-3d:hover .card-3d__content, .card-3d:focus-within .card-3d__content,
+  .card-3d:hover .card-3d__orb--a, .card-3d:focus-within .card-3d__orb--a,
+  .card-3d:hover .card-3d__orb--b, .card-3d:focus-within .card-3d__orb--b { transform: translate3d(0, 0, 0); }}
+
+@media (hover: none) {
+  .card-3d .card-3d__inner { transform: none; }}
+
+@keyframes blinkIn {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/*-----------------------------------*\
+  #GAME SHELL / LAYOUT
+\*-----------------------------------*/
+
+.game-shell {
+  margin: 15px 12px 90px;
+  min-width: 259px;
+}
+
+
+/*-----------------------------------*\
+  #PLAYER CARD (sidebar)
+\*-----------------------------------*/
+
+.player-card {
+  margin-bottom: 15px;
+  max-height: 128px;
+  overflow: hidden;
+  transition: max-height var(--t-med);
+}
+
+.player-card.active { max-height: 640px; }
+
+.player-card .card-3d__inner { overflow: visible; }
+.player-card .card-3d__glass,
+.player-card .card-3d__decor { border-radius: var(--radius-card); overflow: hidden; }
+.player-card .card-3d__content { transform-style: preserve-3d; }
+
+.player-card__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.player-card__avatar {
+  position: relative;
+  background: var(--void);
+  border: var(--border-w) solid var(--grass);
+  border-radius: var(--radius-block);
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: translate3d(0, 0, 16px);
+}
+
+.player-card__avatar img { width: 64px; height: 64px; object-fit: cover; }
+
+.player-card__avatar::before,
+.player-card__avatar::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  transform: translateZ(22px) rotate(45deg);
+}
+
+.player-card__avatar::before {
+  top: -6px;
+  right: -6px;
+  background: var(--accent-secondary);
+}
+
+.player-card__avatar::after {
+  bottom: -6px;
+  left: -6px;
+  background: var(--accent-primary);
+}
+
+.player-card__label {
+  font-family: var(--ff-display);
+  font-size: 8px;
+  color: var(--grass);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.player-card__name {
+  font-family: var(--ff-display);
+  font-size: 13px;
+  color: var(--ink-0);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.player-card__title {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+}
+
+.player-card__toggle span { display: none; }
+
+.player-card__toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-display);
+  font-size: 9px;
+  color: var(--void);
+  background: var(--gold);
+  padding: 8px 10px;
+  border-radius: var(--radius-block);
+  box-shadow: var(--shadow-block);
+  margin-left: auto;
+  align-self: flex-start;
+}
+
+.player-card__body {
+  padding-top: 18px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-med);
+}
+
+.player-card.active .player-card__body { opacity: 1; visibility: visible; }
+
+.player-card__level-row { margin-bottom: 14px; }
+
+.xp-block__label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--ff-display);
+  font-size: 9px;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+
+.xp-bar {
+  width: 100%;
+  height: 10px;
+  background: var(--void);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  overflow: hidden;
+}
+
+.xp-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+}
+
+.player-card__stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.player-card__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-2);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  color: var(--grass);
+  font-size: 15px;
+}
+
+.player-card__stat-text { min-width: 0; }
+
+.player-card__stat-label {
+  font-size: 10px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.player-card__stat-value {
+  font-size: var(--fs-small);
+  color: var(--ink-0);
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.player-card__links {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-link {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-2);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  color: var(--ink-1);
+  font-size: 18px;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.icon-link:hover { color: var(--grass); border-color: var(--grass); }
+
+
+/*-----------------------------------*\
+  #HUD NAVIGATION
+\*-----------------------------------*/
+
+.hud-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  border-top: var(--border-w) solid var(--stone);
+  z-index: 5;
+  opacity: 0.94;
+}
+
+.hud-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hud-nav__link {
+  font-size: 9px;
+  color: var(--ink-2);
+  padding: 18px 12px;
+  border-top: 3px solid transparent;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.hud-nav__link:hover { color: var(--ink-0); }
+
+.hud-nav__link.active {
+  color: var(--grass);
+  border-top-color: var(--grass);
+}
+
+
+/*-----------------------------------*\
+  #MAIN CONTENT / PAGES
+\*-----------------------------------*/
+
+.main-content { min-width: 0; }
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: pageIn 0.35s ease backwards;
+}
+
+@keyframes pageIn {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.page__header {
+  padding-bottom: 16px;
+  margin-bottom: 22px;
+  border-bottom: 2px dashed var(--stone);
+}
+
+.lore-text {
+  color: var(--ink-1);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+
+.lore-text p { margin-bottom: 14px; }
+
+.lore-text p:last-child { margin-bottom: 0; }
+
+/* Used only by projects.html, but kept here on purpose: it shares
+   an element and a specificity with .card-3d__content, so the
+   @media (min-width: 600px) rule below must still win. Moving it
+   to projects.css would flip that and change the padding. */
+.world-card__body {
+  padding: 20px;
+}
+
+
+@media (min-width: 600px) {
+
+  :root {
+    --fs-hero: 40px;
+    --fs-h1: 22px;
+    --fs-h2: 15px;
+    --fs-body: 17px;
+  }
+
+  .card-3d__content { padding: 24px; }
+
+  .player-card__stats { grid-template-columns: 1fr 1fr; }}
+
+
+@media (min-width: 768px) {
+
+  .hud-nav__link { font-size: 10px; }
+
+  .theme-switcher { top: 20px; right: 20px; }}
+
+
+@media (min-width: 1024px) {
+
+  .game-shell {
+    max-width: 1180px;
+    margin: 40px auto 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 26px;
+  }
+
+  .player-card {
+    position: sticky;
+    top: 24px;
+    max-height: none;
+    width: 300px;
+    flex-shrink: 0;
+  }
+
+  .player-card__body {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .player-card__toggle { display: none; }
+
+  .player-card__head { flex-direction: column; text-align: center; }
+
+  .player-card__avatar img { width: 96px; height: 96px; }
+
+  .player-card__links { justify-content: center; }
+
+  .main-content { flex: 1; min-width: 0; }
+
+  .hud-nav {
+    position: sticky;
+    top: 24px;
+    bottom: auto;
+    left: auto;
+    width: max-content;
+    margin-left: auto;
+    margin-bottom: 20px;
+    border: 1px solid var(--stone);
+    border-radius: var(--radius-block);
+    background: var(--panel);
+  }
+
+  .hud-nav__list { flex-wrap: nowrap; }
+
+  .hud-nav__link { border-top: none; border-left: 3px solid transparent; }
+
+  .hud-nav__link.active { border-left-color: var(--grass); border-top-color: transparent; }}
+
+
+@media (min-width: 1250px) {
+
+  body::-webkit-scrollbar { width: 16px; }
+
+  body::-webkit-scrollbar-track { background: var(--void); }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--stone-light);
+    border: 4px solid var(--void);
+    border-radius: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover { background: var(--grass-dark); }}
+
+/* keep 3D rotation subtle and cheap on touch/small screens */
+@media (max-width: 767px) {
+  .card-3d__inner { box-shadow: var(--shadow-block-lg); }}

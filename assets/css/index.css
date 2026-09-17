@@ -1,0 +1,159 @@
+/*-----------------------------------*\
+  #index.css — Zaid Shaikh Developer World
+  Styles used only by index.html.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--stone-light);
+  color: var(--ink-2);
+}
+
+.btn--ghost:hover { color: var(--ink-0); border-color: var(--ink-1); }
+
+
+/*-----------------------------------*\
+  #START SCREEN
+\*-----------------------------------*/
+
+.start-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 40%, var(--panel) 0%, var(--void) 80%);
+  padding: 24px;
+  transition: opacity var(--t-med), visibility var(--t-med), background var(--t-theme);
+}
+
+.start-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.start-screen__content {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.start-screen__eyebrow {
+  font-family: var(--ff-display);
+  font-size: 11px;
+  color: var(--grass);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.start-screen__bar {
+  width: 100%;
+  height: 16px;
+  background: var(--panel);
+  border: var(--border-w) solid var(--stone-light);
+  border-radius: var(--radius-block);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.start-screen__bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--grass-dark), var(--grass));
+  transition: width 0.2s linear;
+}
+
+.start-screen__percent {
+  font-family: var(--ff-display);
+  font-size: 11px;
+  color: var(--ink-2);
+  margin-bottom: 30px;
+}
+
+.start-screen__detected {
+  font-family: var(--ff-display);
+  font-size: 10px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  opacity: 0;
+}
+
+.start-screen__detected.is-visible { animation: blinkIn 0.6s ease forwards; }
+
+.start-screen__name {
+  font-size: 22px;
+  color: var(--ink-0);
+  margin-bottom: 30px;
+  opacity: 0;
+}
+
+.start-screen__name.is-visible { animation: blinkIn 0.6s ease forwards; }
+
+.start-screen__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-med);
+}
+
+.start-screen__actions.is-visible { opacity: 1; visibility: visible; }
+
+@media (min-width: 420px) {
+  .start-screen__actions { flex-direction: row; justify-content: center; }}
+
+
+/*-----------------------------------*\
+  #EXPLORE / LANDING HUB (index.html)
+\*-----------------------------------*/
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.explore-card__link {
+  display: block;
+}
+
+.explore-card__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  color: var(--cyan);
+  font-size: 20px;
+  margin-bottom: 14px;
+  transform: translateZ(10px);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.card-3d:hover .explore-card__icon,
+.card-3d:focus-within .explore-card__icon { color: var(--grass); border-color: var(--grass); }
+
+.explore-card__title {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--ink-0);
+  margin-bottom: 8px;
+}
+
+.explore-card__text {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+@media (min-width: 600px) {
+  .explore-grid { grid-template-columns: 1fr 1fr; }}

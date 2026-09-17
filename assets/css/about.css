@@ -1,0 +1,332 @@
+/*-----------------------------------*\
+  #about.css — Zaid Shaikh Developer World
+  Styles used only by about.html.
+  Split out of the original style.css; rules are unchanged
+  and kept in their original order.
+\*-----------------------------------*/
+
+/* clickable avatar trigger — wraps the existing image, keeps its look */
+.player-card__avatar-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: inherit;
+  transition: transform var(--t-fast), filter var(--t-fast), box-shadow var(--t-fast);
+}
+
+.player-card__avatar-btn img {
+  transition: transform var(--t-fast), filter var(--t-fast);
+}
+
+.player-card__avatar-btn:hover img,
+.player-card__avatar-btn:focus-visible img {
+  transform: scale(1.05);
+  filter: brightness(1.06) saturate(1.08);
+}
+
+.player-card__avatar-btn:hover,
+.player-card__avatar-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--void), 0 0 14px var(--glow-color);
+}
+
+.player-card__avatar-btn:active img {
+  transform: scale(1.02);
+}
+
+.player-card__avatar-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+
+/*-----------------------------------*\
+  #ABOUT PAGE
+\*-----------------------------------*/
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.stat-card .card-3d__content { padding: 16px 18px; }
+
+.stat-card__label {
+  font-family: var(--ff-display);
+  font-size: 9px;
+  color: var(--accent-primary);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.stat-card__value {
+  font-family: var(--ff-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink-0);
+}
+
+.ability-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.ability-card__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void);
+  border: 1px solid var(--stone-light);
+  border-radius: var(--radius-block);
+  color: var(--cyan);
+  font-size: 20px;
+  margin-bottom: 14px;
+  transform: translateZ(10px);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.card-3d:hover .ability-card__icon,
+.card-3d:focus-within .ability-card__icon { color: var(--grass); border-color: var(--grass); }
+
+.ability-card__title {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--ink-0);
+  margin-bottom: 8px;
+}
+
+.ability-card__text {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+
+/*-----------------------------------*\
+  #AVATAR LIGHTBOX — premium click-to-zoom preview
+  Structure:
+    .avatar-lightbox                 (fullscreen host, fixed)
+      .avatar-lightbox__backdrop      (blurred dark scrim)
+      .avatar-lightbox__container     (dialog: centers frame + close btn)
+        .avatar-lightbox__frame       (glass panel, matches .card-3d)
+          .avatar-lightbox__corner    (x4, voxel-inspired corner accents)
+          .avatar-lightbox__image     (the actual avatar, large)
+        .avatar-lightbox__close       (circular close button)
+\*-----------------------------------*/
+
+.avatar-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--t-med), visibility var(--t-med);
+}
+
+.avatar-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.avatar-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: hsla(220, 40%, 3%, 0.72);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+
+.avatar-lightbox__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: min(560px, 92vw);
+  max-height: 92vh;
+  transform: scale(0.86) translateY(10px);
+  opacity: 0;
+  transition: transform var(--t-card), opacity var(--t-card);
+}
+
+.avatar-lightbox.is-open .avatar-lightbox__container {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.avatar-lightbox__frame {
+  position: relative;
+  padding: 14px;
+  border-radius: var(--radius-card);
+  background: linear-gradient(165deg, var(--card-bg) 0%, var(--void) 140%);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    var(--shadow-card-hover),
+    0 0 0 1px hsla(0, 0%, 100%, 0.03) inset,
+    0 0 46px var(--glow-color);
+  overflow: hidden;
+  max-width: 100%;
+  max-height: calc(92vh - 74px);
+  display: flex;
+}
+
+.avatar-lightbox__frame::before {
+  /* frosted glass sheen, same recipe as .card-3d__glass */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(155deg, var(--glass-1) 0%, transparent 48%, var(--glass-2) 100%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-top: 1px solid var(--glass-edge);
+  border-left: 1px solid var(--glass-edge);
+  pointer-events: none;
+}
+
+.avatar-lightbox__frame::after {
+  /* soft accent sheen, top-right */
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -18%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glass-sheen), transparent 70%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.avatar-lightbox__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 460px;
+  max-height: calc(92vh - 102px);
+  object-fit: contain;
+  border-radius: calc(var(--radius-card) - 10px);
+  box-shadow: 0 0 0 1px var(--stone-light);
+}
+
+/* small voxel-inspired corner accents on the frame */
+.avatar-lightbox__corner {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.avatar-lightbox__corner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-primary);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 30% 30%, 30% 100%, 0 100%);
+  filter: drop-shadow(0 0 6px var(--glow-color));
+}
+
+.avatar-lightbox__corner--tl { top: 8px; left: 8px; }
+
+.avatar-lightbox__corner--tr {
+  top: 8px;
+  right: 8px;
+  transform: rotate(90deg);
+}
+
+.avatar-lightbox__corner--bl {
+  bottom: 8px;
+  left: 8px;
+  transform: rotate(-90deg);
+}
+
+.avatar-lightbox__corner--br {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.avatar-lightbox__corner--tr::before,
+.avatar-lightbox__corner--bl::before { background: var(--accent-secondary); }
+
+.avatar-lightbox__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--stone-light);
+  color: var(--ink-0);
+  font-size: 22px;
+  box-shadow: var(--shadow-block);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+
+.avatar-lightbox__close ion-icon { font-size: 22px; }
+
+.avatar-lightbox__close:hover,
+.avatar-lightbox__close:focus-visible {
+  color: var(--grass);
+  border-color: var(--grass);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--shadow-color), 0 0 16px var(--glow-color);
+}
+
+.avatar-lightbox__close:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-block);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-lightbox,
+  .avatar-lightbox__container,
+  .avatar-lightbox__close,
+  .player-card__avatar-btn,
+  .player-card__avatar-btn img {
+    transition: none;
+  }
+
+  .avatar-lightbox__container {
+    transform: none;
+  }}
+
+@media (max-width: 479px) {
+  .avatar-lightbox { padding: 16px; }
+  .avatar-lightbox__frame { padding: 10px; }
+  .avatar-lightbox__image { max-height: calc(92vh - 90px); }
+  .avatar-lightbox__close { width: 40px; height: 40px; font-size: 20px; }
+  .avatar-lightbox__corner { width: 12px; height: 12px; }}
+
+@media (min-width: 768px) {
+  .avatar-lightbox__frame { padding: 18px; }
+  .avatar-lightbox__image { max-width: 520px; }}
+
+
+@media (min-width: 600px) {
+  .stat-card .card-3d__content { padding: 20px 22px; }
+
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+
+  .ability-grid { grid-template-columns: 1fr 1fr; }}
