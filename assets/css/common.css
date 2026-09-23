@@ -18,396 +18,49 @@
 \*-----------------------------------*/
 
 :root,
-body[data-theme="night"] {
-
-  /* base palette */
-  --void: #0a0d12;
-  --panel: #12161d;
-  --panel-2: #171c24;
-  --stone: #2a323d;
-  --stone-light: #3d4753;
-
-  /* accents */
-  --grass: #5cc25c;
-  --grass-dark: #3f8f3f;
-  --gold: #f0b90b;
-  --gold-dark: #b8890a;
-  --cyan: #3fe0e0;
-  --danger: #e0554f;
-
-  /* text */
-  --ink-0: #eef2f4;
-  --ink-1: #c3ccd4;
-  --ink-2: #8993a1;
-
-  /* glow */
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 16px hsla(112, 55%, 55%, 0.35);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 16px hsla(45, 90%, 55%, 0.35);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 16px hsla(180, 75%, 60%, 0.3);
-  --glow-soft: 0 0 18px hsla(112, 55%, 55%, 0.28);
-
-  /* semantic aliases (referenced by the theme-switcher UI + docs) */
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--gold);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(0, 0%, 0%, 0.45);
-  --glow-color: hsla(112, 55%, 55%, 0.35);
-
-  /* voxel background layers */
-  --sky-gradient:
-    radial-gradient(ellipse 70% 40% at 50% 0%, hsla(220, 55%, 22%, 0.55), transparent 60%),
-    linear-gradient(to bottom, #070a0f 0%, #0c1119 45%, #10161f 75%, #0a0d12 100%);
-  --mountains-far: #151b24;
-  --mountains-near: #1b2330;
-  --ground-gradient: linear-gradient(to bottom, #274522 0%, #16240f 100%);
-  --ground-line: hsla(0, 0%, 0%, 0.25);
-  --ground-border: #3a6b30;
-  --stars-opacity: 0.8;
-  --grid-opacity: 0;
-  --cube-top: var(--grass);
-  --cube-left: var(--grass-dark);
-  --cube-right: #2c5228;
-
-  /* card-3d glass tokens */
-  --glass-hue: 112;
-  --glass-1: hsla(112, 55%, 62%, 0.16);
-  --glass-2: hsla(220, 45%, 8%, 0.55);
-  --glass-edge: hsla(112, 60%, 72%, 0.4);
-  --glass-sheen: hsla(112, 70%, 80%, 0.22);
-  --orb-a: var(--grass);
-  --orb-b: var(--gold);
-  --tilt-max: 9deg;
-
-}
-
-
-/*-----------------------------------*\
-  #THEME — DAY
-\*-----------------------------------*/
-
-body[data-theme="day"] {
-
-  --void: #eaf3fb;
-  --panel: #ffffff;
-  --panel-2: #f3f7fb;
-  --stone: #d7e0e9;
-  --stone-light: #c1ccd8;
-
-  --grass: #2f9e44;
-  --grass-dark: #237a35;
-  --gold: #d98c1f;
-  --gold-dark: #b06f14;
-  --cyan: #0f8fa8;
-  --danger: #c8443c;
-
-  --ink-0: #1b2430;
-  --ink-1: #3c4753;
-  --ink-2: #64707d;
-
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 14px hsla(130, 45%, 40%, 0.22);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 14px hsla(36, 70%, 45%, 0.22);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 14px hsla(190, 60%, 40%, 0.2);
-  --glow-soft: 0 0 14px hsla(130, 45%, 40%, 0.18);
-
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--gold);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(210, 30%, 40%, 0.16);
-  --glow-color: hsla(130, 45%, 40%, 0.2);
-
-  --sky-gradient:
-    radial-gradient(ellipse 70% 45% at 50% 0%, hsla(200, 85%, 82%, 0.9), transparent 65%),
-    linear-gradient(to bottom, #bfe3fb 0%, #d7edfb 40%, #eef7fb 75%, #f5f9ec 100%);
-  --mountains-far: #a9c9db;
-  --mountains-near: #8fb89a;
-  --ground-gradient: linear-gradient(to bottom, #a9d977 0%, #7fb955 100%);
-  --ground-line: hsla(90, 40%, 20%, 0.12);
-  --ground-border: #5d9a3f;
-  --stars-opacity: 0;
-  --grid-opacity: 0;
-  --cube-top: #f4c542;
-  --cube-left: #d9a52b;
-  --cube-right: #b3841c;
-
-  --glass-hue: 130;
-  --glass-1: hsla(0, 0%, 100%, 0.75);
-  --glass-2: hsla(200, 60%, 92%, 0.4);
-  --glass-edge: hsla(0, 0%, 100%, 0.85);
-  --glass-sheen: hsla(130, 60%, 96%, 0.5);
-  --orb-a: var(--grass);
-  --orb-b: var(--cyan);
-  --tilt-max: 7deg;
-
-}
-
-
-/*-----------------------------------*\
-  #THEME — NEON
-\*-----------------------------------*/
-
-body[data-theme="neon"] {
-
-  --void: #08050f;
-  --panel: #120a24;
-  --panel-2: #180f2e;
-  --stone: #331e56;
-  --stone-light: #4a2c78;
-
-  --grass: #b24bff;
-  --grass-dark: #8a2be2;
-  --gold: #ff2fd6;
-  --gold-dark: #c91fab;
-  --cyan: #33f2ff;
-  --danger: #ff4365;
-
-  --ink-0: #f3eaff;
-  --ink-1: #cbb8ec;
-  --ink-2: #9782c2;
-
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 22px hsla(280, 100%, 65%, 0.55);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 22px hsla(310, 100%, 60%, 0.5);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 22px hsla(187, 100%, 60%, 0.5);
-  --glow-soft: 0 0 24px hsla(280, 100%, 65%, 0.4);
-
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--cyan);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(280, 90%, 10%, 0.6);
-  --glow-color: hsla(280, 100%, 65%, 0.45);
-
-  --sky-gradient:
-    radial-gradient(ellipse 60% 40% at 50% 0%, hsla(280, 90%, 30%, 0.5), transparent 65%),
-    linear-gradient(to bottom, #06030d 0%, #0c0620 45%, #120a26 75%, #08050f 100%);
-  --mountains-far: #1c1034;
-  --mountains-near: #241640;
-  --ground-gradient: linear-gradient(to bottom, #1c0f38 0%, #0a0518 100%);
-  --ground-line: hsla(280, 100%, 65%, 0.18);
-  --ground-border: #8a2be2;
-  --stars-opacity: 0.9;
-  --grid-opacity: 0.35;
-  --cube-top: #b24bff;
-  --cube-left: #8a2be2;
-  --cube-right: #5a1a99;
-
-  --glass-hue: 280;
-  --glass-1: hsla(280, 100%, 72%, 0.2);
-  --glass-2: hsla(265, 70%, 8%, 0.55);
-  --glass-edge: hsla(300, 100%, 78%, 0.45);
-  --glass-sheen: hsla(190, 100%, 75%, 0.28);
-  --orb-a: var(--grass);
-  --orb-b: var(--cyan);
-  --tilt-max: 11deg;
-
-}
-
-
-/*-----------------------------------*\
-  #THEME — FOREST
-\*-----------------------------------*/
-
-body[data-theme="forest"] {
-
-  --void: #0c1410;
-  --panel: #141f18;
-  --panel-2: #1a271e;
-  --stone: #33452f;
-  --stone-light: #4a5f3f;
-
-  --grass: #7bb662;
-  --grass-dark: #4f8a3c;
-  --gold: #c9a24a;
-  --gold-dark: #9c7c34;
-  --cyan: #6fae8a;
-  --danger: #c15b42;
-
-  --ink-0: #eef2e6;
-  --ink-1: #c6d1bc;
-  --ink-2: #8fa084;
-
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 16px hsla(100, 40%, 45%, 0.3);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 16px hsla(42, 55%, 50%, 0.3);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 16px hsla(150, 30%, 45%, 0.28);
-  --glow-soft: 0 0 18px hsla(100, 40%, 45%, 0.25);
-
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--gold);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(100, 30%, 5%, 0.5);
-  --glow-color: hsla(100, 40%, 45%, 0.3);
-
-  --sky-gradient:
-    radial-gradient(ellipse 70% 40% at 50% 0%, hsla(90, 35%, 20%, 0.5), transparent 60%),
-    linear-gradient(to bottom, #0a120c 0%, #0f1a12 45%, #121f16 75%, #0c1410 100%);
-  --mountains-far: #1b2a1e;
-  --mountains-near: #223424;
-  --ground-gradient: linear-gradient(to bottom, #2f4a24 0%, #17280f 100%);
-  --ground-line: hsla(30, 30%, 10%, 0.3);
-  --ground-border: #4f8a3c;
-  --stars-opacity: 0.35;
-  --grid-opacity: 0;
-  --cube-top: #7bb662;
-  --cube-left: #4f8a3c;
-  --cube-right: #2c5220;
-
-  --glass-hue: 100;
-  --glass-1: hsla(100, 45%, 58%, 0.16);
-  --glass-2: hsla(140, 40%, 7%, 0.5);
-  --glass-edge: hsla(100, 50%, 68%, 0.35);
-  --glass-sheen: hsla(80, 60%, 78%, 0.2);
-  --orb-a: var(--grass);
-  --orb-b: var(--gold);
-  --tilt-max: 8deg;
-
-}
-
-
-/*-----------------------------------*\
-  #THEME — ICE
-\*-----------------------------------*/
-
-body[data-theme="ice"] {
-
-  --void: #0a141c;
-  --panel: #111f2b;
-  --panel-2: #172835;
-  --stone: #2d4658;
-  --stone-light: #416077;
-
-  --grass: #6fd8ff;
-  --grass-dark: #3ba8d9;
-  --gold: #d6e8f2;
-  --gold-dark: #a9c5d6;
-  --cyan: #7de8ff;
-  --danger: #e0716a;
-
-  --ink-0: #eef7fc;
-  --ink-1: #c1dbe8;
-  --ink-2: #85a7ba;
-
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 18px hsla(195, 90%, 65%, 0.4);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 18px hsla(200, 60%, 85%, 0.35);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 18px hsla(190, 100%, 70%, 0.4);
-  --glow-soft: 0 0 20px hsla(195, 90%, 65%, 0.32);
-
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--cyan);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(200, 60%, 8%, 0.5);
-  --glow-color: hsla(195, 90%, 65%, 0.35);
-
-  --sky-gradient:
-    radial-gradient(ellipse 70% 45% at 50% 0%, hsla(200, 80%, 40%, 0.45), transparent 65%),
-    linear-gradient(to bottom, #071019 0%, #0b1c28 45%, #0f2431 75%, #0a141c 100%);
-  --mountains-far: #16283a;
-  --mountains-near: #1c3345;
-  --ground-gradient: linear-gradient(to bottom, #cfe9f5 0%, #8fbdd4 100%);
-  --ground-line: hsla(200, 40%, 20%, 0.2);
-  --ground-border: #6fd8ff;
-  --stars-opacity: 0.6;
-  --grid-opacity: 0;
-  --cube-top: #eaf8ff;
-  --cube-left: #a8dcf2;
-  --cube-right: #6fb8d9;
-
-  --glass-hue: 195;
-  --glass-1: hsla(195, 90%, 80%, 0.24);
-  --glass-2: hsla(205, 70%, 14%, 0.45);
-  --glass-edge: hsla(195, 90%, 88%, 0.42);
-  --glass-sheen: hsla(195, 100%, 90%, 0.3);
-  --orb-a: var(--grass);
-  --orb-b: var(--cyan);
-  --tilt-max: 8deg;
-
-}
-
-
-/*-----------------------------------*\
-  #THEME — DARK (professional)
-\*-----------------------------------*/
-
 body[data-theme="dark"] {
-
-  --void: #08090b;
-  --panel: #101113;
-  --panel-2: #16181b;
-  --stone: #2a2c30;
-  --stone-light: #3c3f44;
-
-  --grass: #9a8cf0;
-  --grass-dark: #7565d9;
-  --gold: #d9dbe0;
-  --gold-dark: #a9acb4;
-  --cyan: #7bb8e8;
-  --danger: #e0554f;
-
-  --ink-0: #f2f3f5;
-  --ink-1: #c7cad0;
-  --ink-2: #85898f;
-
-  --glow-grass: 0 0 0 1px var(--grass), 0 0 10px hsla(255, 70%, 68%, 0.18);
-  --glow-gold: 0 0 0 1px var(--gold), 0 0 10px hsla(220, 10%, 80%, 0.14);
-  --glow-cyan: 0 0 0 1px var(--cyan), 0 0 10px hsla(205, 65%, 65%, 0.16);
-  --glow-soft: 0 0 12px hsla(255, 70%, 68%, 0.14);
-
-  --bg-primary: var(--void);
-  --bg-secondary: var(--panel);
-  --text-primary: var(--ink-0);
-  --text-secondary: var(--ink-2);
-  --accent-primary: var(--grass);
-  --accent-secondary: var(--cyan);
-  --border-color: var(--stone-light);
-  --card-bg: var(--panel-2);
-  --shadow-color: hsla(0, 0%, 0%, 0.5);
-  --glow-color: hsla(255, 70%, 68%, 0.12);
-
-  --sky-gradient: linear-gradient(to bottom, #050506 0%, #0a0b0d 45%, #101113 75%, #08090b 100%);
-  --mountains-far: #131417;
-  --mountains-near: #18191c;
-  --ground-gradient: linear-gradient(to bottom, #1c1d20 0%, #0e0f11 100%);
-  --ground-line: hsla(0, 0%, 100%, 0.05);
-  --ground-border: #3c3f44;
-  --stars-opacity: 0.25;
-  --grid-opacity: 0;
-  --cube-top: #9a8cf0;
-  --cube-left: #7565d9;
-  --cube-right: #4d43a3;
-
-  --glass-hue: 255;
-  --glass-1: hsla(255, 60%, 74%, 0.12);
-  --glass-2: hsla(230, 15%, 6%, 0.55);
-  --glass-edge: hsla(255, 50%, 76%, 0.25);
-  --glass-sheen: hsla(255, 60%, 85%, 0.16);
-  --orb-a: var(--grass);
-  --orb-b: var(--cyan);
-  --tilt-max: 6deg;
-
+  /* Reference: charcoal professional dark with periwinkle borders */
+  --void:#191919; --panel:#202020; --panel-2:#242424; --stone:#303030; --stone-light:#3b3b3b;
+  --grass:#8ea2ff; --grass-dark:#6f82df; --gold:#f2cf55; --gold-dark:#c9a83a; --cyan:#8ea2ff; --danger:#ff6475;
+  --ink-0:#f1f1f3; --ink-1:#c4c4c9; --ink-2:#77777f;
+  --glow-grass:0 0 0 1px var(--grass),0 0 12px rgba(142,162,255,.18); --glow-gold:0 0 0 1px var(--gold),0 0 12px rgba(242,207,85,.15); --glow-cyan:var(--glow-grass); --glow-soft:0 0 14px rgba(142,162,255,.14);
+  --bg-primary:var(--void); --bg-secondary:var(--panel); --text-primary:var(--ink-0); --text-secondary:var(--ink-2); --accent-primary:var(--grass); --accent-secondary:var(--gold); --border-color:var(--stone-light); --card-bg:var(--panel-2); --shadow-color:rgba(0,0,0,.45); --glow-color:rgba(142,162,255,.16);
+  --sky-gradient:linear-gradient(#191919,#191919); --mountains-far:#1d1d1d; --mountains-near:#202020; --ground-gradient:linear-gradient(#202020,#191919); --ground-line:rgba(255,255,255,.025); --ground-border:#343434; --stars-opacity:.18; --grid-opacity:0; --cube-top:#8ea2ff; --cube-left:#6f82df; --cube-right:#505fa8;
+  --glass-hue:230; --glass-1:rgba(142,162,255,.08); --glass-2:rgba(20,20,20,.68); --glass-edge:rgba(142,162,255,.5); --glass-sheen:rgba(255,255,255,.07); --orb-a:var(--grass); --orb-b:var(--gold); --tilt-max:6deg;
 }
 
+body[data-theme="light"] {
+  /* Reference: clean light gray/blue interface */
+  --void:#f7f8f9; --panel:#f3f3f5; --panel-2:#e8e8eb; --stone:#dedfe3; --stone-light:#c9cbd1;
+  --grass:#1597d2; --grass-dark:#0f79ad; --gold:#14a269; --gold-dark:#0c7e50; --cyan:#1597d2; --danger:#e85c66;
+  --ink-0:#202126; --ink-1:#555861; --ink-2:#858993;
+  --glow-grass:0 0 0 1px var(--grass),0 0 12px rgba(21,151,210,.12); --glow-gold:0 0 0 1px var(--gold),0 0 12px rgba(20,162,105,.1); --glow-cyan:var(--glow-grass); --glow-soft:0 0 14px rgba(21,151,210,.1);
+  --bg-primary:var(--void); --bg-secondary:var(--panel); --text-primary:var(--ink-0); --text-secondary:var(--ink-2); --accent-primary:var(--grass); --accent-secondary:var(--gold); --border-color:var(--stone-light); --card-bg:var(--panel-2); --shadow-color:rgba(38,48,60,.12); --glow-color:rgba(21,151,210,.13);
+  --sky-gradient:linear-gradient(#f7f8f9,#f7f8f9); --mountains-far:#eceef0; --mountains-near:#e4e6e9; --ground-gradient:linear-gradient(#f2f3f4,#e9ebed); --ground-line:rgba(30,40,50,.045); --ground-border:#cfd2d7; --stars-opacity:0; --grid-opacity:0; --cube-top:#1597d2; --cube-left:#0f79ad; --cube-right:#0a5f8a;
+  --glass-hue:200; --glass-1:rgba(255,255,255,.82); --glass-2:rgba(232,232,235,.7); --glass-edge:rgba(255,255,255,.9); --glass-sheen:rgba(255,255,255,.65); --orb-a:var(--grass); --orb-b:var(--gold); --tilt-max:5deg;
+}
+
+body[data-theme="arcade-dark"] {
+  /* Reference: black arcade mode with electric cyan + green */
+  --void:#060908; --panel:#0b0e0d; --panel-2:#111514; --stone:#17211f; --stone-light:#164c50;
+  --grass:#00d9e8; --grass-dark:#00a8b4; --gold:#00e890; --gold-dark:#00b86f; --cyan:#00d9e8; --danger:#ff4f68;
+  --ink-0:#f1f5f4; --ink-1:#a8afad; --ink-2:#626c69;
+  --glow-grass:0 0 0 1px var(--grass),0 0 18px rgba(0,217,232,.24); --glow-gold:0 0 0 1px var(--gold),0 0 16px rgba(0,232,144,.2); --glow-cyan:var(--glow-grass); --glow-soft:0 0 20px rgba(0,217,232,.18);
+  --bg-primary:var(--void); --bg-secondary:var(--panel); --text-primary:var(--ink-0); --text-secondary:var(--ink-2); --accent-primary:var(--grass); --accent-secondary:var(--gold); --border-color:#0d6268; --card-bg:var(--panel-2); --shadow-color:rgba(0,0,0,.72); --glow-color:rgba(0,217,232,.25);
+  --sky-gradient:linear-gradient(#060908,#060908); --mountains-far:#09100e; --mountains-near:#0c1412; --ground-gradient:linear-gradient(#0b100f,#060908); --ground-line:rgba(0,217,232,.055); --ground-border:#0d6268; --stars-opacity:.22; --grid-opacity:.14; --cube-top:#00d9e8; --cube-left:#00a8b4; --cube-right:#006d75;
+  --glass-hue:184; --glass-1:rgba(0,217,232,.07); --glass-2:rgba(2,8,7,.78); --glass-edge:rgba(0,217,232,.5); --glass-sheen:rgba(0,232,144,.08); --orb-a:var(--grass); --orb-b:var(--gold); --tilt-max:7deg;
+}
+
+body[data-theme="arcade-light"] {
+  /* Reference: warm off-white arcade mode with blue outlines + gold */
+  --void:#f7f6f0; --panel:#fbfbf8; --panel-2:#efefeb; --stone:#e3e3dd; --stone-light:#202236;
+  --grass:#667cff; --grass-dark:#4d61d8; --gold:#d59d00; --gold-dark:#a97900; --cyan:#667cff; --danger:#ef5c5c;
+  --ink-0:#20212b; --ink-1:#5e6170; --ink-2:#85899b;
+  --glow-grass:0 0 0 1px var(--grass),0 0 10px rgba(102,124,255,.12); --glow-gold:0 0 0 1px var(--gold),0 0 10px rgba(213,157,0,.1); --glow-cyan:var(--glow-grass); --glow-soft:0 0 12px rgba(102,124,255,.1);
+  --bg-primary:var(--void); --bg-secondary:var(--panel); --text-primary:var(--ink-0); --text-secondary:var(--ink-2); --accent-primary:var(--grass); --accent-secondary:var(--gold); --border-color:#202236; --card-bg:var(--panel-2); --shadow-color:rgba(32,34,54,.16); --glow-color:rgba(102,124,255,.12);
+  --sky-gradient:linear-gradient(#f7f6f0,#f7f6f0); --mountains-far:#f0efe9; --mountains-near:#e9e8e2; --ground-gradient:linear-gradient(#f7f6f0,#efeee8); --ground-line:rgba(102,124,255,.05); --ground-border:#202236; --stars-opacity:0; --grid-opacity:.08; --cube-top:#667cff; --cube-left:#4d61d8; --cube-right:#34439c;
+  --glass-hue:232; --glass-1:rgba(255,255,255,.76); --glass-2:rgba(239,239,235,.66); --glass-edge:rgba(102,124,255,.38); --glass-sheen:rgba(255,255,255,.7); --orb-a:var(--grass); --orb-b:var(--gold); --tilt-max:6deg;
+}
 
 :root {
 
@@ -1338,18 +991,19 @@ body,
 @media (min-width: 1024px) {
 
   .game-shell {
-    max-width: 1180px;
-    margin: 40px auto 60px;
+    width: calc(100% - 48px);
+    max-width: none;
+    margin: 40px 24px 60px;
     display: flex;
     align-items: flex-start;
-    gap: 26px;
+    gap: 32px;
   }
 
   .player-card {
     position: sticky;
     top: 24px;
     max-height: none;
-    width: 300px;
+    width: 360px;
     flex-shrink: 0;
   }
 
@@ -1405,3 +1059,303 @@ body,
 /* keep 3D rotation subtle and cheap on touch/small screens */
 @media (max-width: 767px) {
   .card-3d__inner { box-shadow: var(--shadow-block-lg); }}
+
+/* 2026 reference-theme switcher polish */
+.theme-switcher__btn{border-radius:10px;box-shadow:0 8px 24px var(--shadow-color);min-width:40px;justify-content:center}
+.theme-switcher__menu{width:150px;border-radius:14px;padding:7px;background:var(--panel);box-shadow:0 14px 36px var(--shadow-color)}
+.theme-switcher__menu-title{display:none}
+.theme-switcher__option{padding:9px 10px;border-radius:8px;font-size:13px}
+.theme-switcher__option-icon{width:16px;text-align:center}
+[data-theme-option][aria-selected="true"] .theme-switcher__option{background:color-mix(in srgb,var(--grass) 16%,var(--panel));color:var(--grass)}
+body[data-theme="arcade-dark"] .voxel-bg__grid,body[data-theme="arcade-light"] .voxel-bg__grid{opacity:var(--grid-opacity)}
+
+/*-----------------------------------*\
+  #THEME-AWARE HALFTONE DOT BACKGROUND
+  Inspired by the supplied dotted reference image.
+\*-----------------------------------*/
+:root,
+body[data-theme="dark"] {
+  --dot-bg: #191919;
+  --dot-color: rgba(142, 162, 255, .34);
+  --dot-accent: rgba(142, 162, 255, .18);
+}
+body[data-theme="light"] {
+  --dot-bg: #f7f8f9;
+  --dot-color: rgba(32, 33, 38, .24);
+  --dot-accent: rgba(21, 151, 210, .14);
+}
+body[data-theme="arcade-dark"] {
+  --dot-bg: #060908;
+  --dot-color: rgba(0, 217, 232, .34);
+  --dot-accent: rgba(0, 232, 144, .16);
+}
+body[data-theme="arcade-light"] {
+  --dot-bg: #f7f6f0;
+  --dot-color: rgba(32, 34, 54, .28);
+  --dot-accent: rgba(102, 124, 255, .14);
+}
+
+/* Replace the old voxel scenery with a clean halftone/dot field. */
+.voxel-bg {
+  background: var(--dot-bg);
+  transition: background-color var(--t-theme);
+}
+
+.voxel-bg__sky {
+  background-color: var(--dot-bg);
+  background-image:
+    radial-gradient(circle, var(--dot-color) 0 1.55px, transparent 1.75px),
+    radial-gradient(circle, var(--dot-accent) 0 1px, transparent 1.2px);
+  background-size: 20px 20px, 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 1;
+  transition: background-color var(--t-theme), background-image var(--t-theme);
+}
+
+/* Soft centre emphasis gives the halftone field depth without distracting from content. */
+.voxel-bg__sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 42%, transparent 0 18%, var(--dot-bg) 78%);
+  opacity: .30;
+  transition: background var(--t-theme);
+}
+
+/* Old mountain/grid/star/cube scenery is intentionally disabled. */
+.voxel-bg__grid,
+.voxel-bg__stars,
+.voxel-bg__mountains,
+.voxel-bg__ground,
+.voxel-cube {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .voxel-bg__sky {
+    background-size: 17px 17px, 17px 17px;
+    background-position: 0 0, 8.5px 8.5px;
+  }
+}
+
+
+/* Full-width desktop layout */
+@media (min-width: 1440px) {
+  .game-shell {
+    width: calc(100% - 80px);
+    max-width: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    gap: 36px;
+  }
+
+  .player-card {
+    width: 400px;
+  }
+
+  .main-content {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   NAVBAR-INTEGRATED THEME CONTROL
+   Icon-only appearance control; no emoji and no "Theme" text.
+   ========================================================= */
+.theme-switcher {
+  position: relative;
+  top: auto;
+  right: auto;
+  z-index: 60;
+  flex: 0 0 auto;
+  margin-left: auto;
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+}
+
+.theme-switcher__btn {
+  width: 46px;
+  min-width: 46px;
+  height: 100%;
+  min-height: 46px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 0;
+  border-left: 1px solid var(--stone);
+  border-radius: 0 var(--radius-block) var(--radius-block) 0;
+  background: color-mix(in srgb, var(--grass) 13%, var(--panel));
+  box-shadow: none;
+  color: var(--grass);
+}
+
+.theme-switcher__btn:hover,
+.theme-switcher__btn:focus-visible {
+  transform: none;
+  box-shadow: inset 0 0 0 1px var(--grass), 0 0 16px var(--glow-color);
+  border-color: var(--grass);
+  background: color-mix(in srgb, var(--grass) 22%, var(--panel));
+}
+
+.theme-switcher__icon {
+  width: 19px;
+  height: 19px;
+  font-size: 19px;
+}
+
+.theme-switcher__label,
+.theme-switcher__chevron,
+.theme-switcher__menu-title {
+  display: none !important;
+}
+
+.theme-switcher__menu {
+  top: calc(100% + 8px);
+  right: 0;
+  width: 170px;
+  border-radius: 10px;
+  padding: 6px;
+  background: var(--panel);
+  box-shadow: 0 14px 36px var(--shadow-color);
+}
+
+.theme-switcher__option-icon {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  font-size: 17px;
+}
+
+/* Navbar owns both the page links and the appearance control. */
+.hud-nav {
+  display: flex;
+  align-items: stretch;
+}
+
+.hud-nav__list {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 1024px) {
+  .hud-nav {
+    width: max-content;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .theme-switcher {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hud-nav__list {
+    min-width: 0;
+  }
+
+  .theme-switcher__btn {
+    width: 44px;
+    min-width: 44px;
+  }
+
+  .theme-switcher__menu {
+    top: auto;
+    bottom: calc(100% + 8px);
+  }
+}
+
+/*-----------------------------------*\
+  #NESTED PAGE PANELS — 2026-09
+  Gives every page the same "card inside card" structure:
+  one large page panel, with each major content block inside it.
+\*-----------------------------------*/
+
+/* Large outer card around the active page content */
+@media (min-width: 768px) {
+  .main-content > .page {
+    position: relative;
+    padding: 14px;
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+    border: 2px solid var(--border-color);
+    border-radius: 22px;
+    box-shadow: 0 8px 0 color-mix(in srgb, var(--shadow-color) 72%, transparent);
+    overflow: hidden;
+  }
+
+  /* Header belongs to the outer card, like the reference About Me heading. */
+  .main-content > .page > .page__header {
+    margin: 0 0 16px;
+    padding: 4px 10px 14px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Inner cards for every major page section. */
+  .main-content > .page > section {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 18px;
+    background: color-mix(in srgb, var(--card-bg) 88%, var(--void));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--shadow-color) 58%, transparent);
+  }
+
+  .main-content > .page > section:last-child {
+    margin-bottom: 0;
+  }
+
+  /* The intro text is now an actual inner card instead of floating on the background. */
+  .main-content > .page > .lore-text {
+    margin-bottom: 16px;
+    padding: 18px 20px;
+  }
+
+  /* Keep section headings visually attached to their inner card. */
+  .main-content > .page > section > .section-heading:first-child {
+    margin: -2px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Contact page uses div.terminal as a major block, so make it fit the same nested system. */
+  .main-content > .page > .terminal {
+    margin-bottom: 16px;
+  }
+
+  /* Keep the landing CTA comfortably inside the outer card. */
+  .main-content > .page > .btn {
+    margin-left: 4px;
+  }
+}
+
+/* On phones retain the same hierarchy with tighter spacing. */
+@media (max-width: 767px) {
+  .main-content > .page {
+    padding: 10px;
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+  }
+
+  .main-content > .page > .page__header {
+    margin: 0 0 12px;
+    padding: 4px 4px 12px;
+  }
+
+  .main-content > .page > section {
+    margin-bottom: 12px;
+    padding: 14px;
+    background: color-mix(in srgb, var(--card-bg) 90%, var(--void));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+  }
+}

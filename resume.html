@@ -26,70 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body data-theme="night" class="page-resume">
-
-  <!-- ============================= -->
-  <!-- THEME SWITCHER                 -->
-  <!-- ============================= -->
-  <div class="theme-switcher" data-theme-switcher>
-    <button
-      class="theme-switcher__btn"
-      type="button"
-      data-theme-toggle
-      aria-haspopup="listbox"
-      aria-expanded="false"
-      aria-label="Select color theme">
-      <span class="theme-switcher__icon" aria-hidden="true">🎨</span>
-      <span class="theme-switcher__label">Theme</span>
-      <ion-icon name="chevron-down" class="theme-switcher__chevron" aria-hidden="true"></ion-icon>
-    </button>
-
-    <ul class="theme-switcher__menu" data-theme-menu role="listbox" aria-label="Color themes" tabindex="-1">
-      <li class="theme-switcher__menu-title" role="presentation">Select Theme</li>
-      <li role="option" data-theme-option="night" aria-selected="true">
-        <button type="button" class="theme-switcher__option" data-theme-value="night">
-          <span class="theme-switcher__option-icon" aria-hidden="true">🌙</span>
-          <span class="theme-switcher__option-label">Night</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-      <li role="option" data-theme-option="day" aria-selected="false">
-        <button type="button" class="theme-switcher__option" data-theme-value="day">
-          <span class="theme-switcher__option-icon" aria-hidden="true">☀️</span>
-          <span class="theme-switcher__option-label">Day</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-      <li role="option" data-theme-option="neon" aria-selected="false">
-        <button type="button" class="theme-switcher__option" data-theme-value="neon">
-          <span class="theme-switcher__option-icon" aria-hidden="true">💜</span>
-          <span class="theme-switcher__option-label">Neon</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-      <li role="option" data-theme-option="forest" aria-selected="false">
-        <button type="button" class="theme-switcher__option" data-theme-value="forest">
-          <span class="theme-switcher__option-icon" aria-hidden="true">🌲</span>
-          <span class="theme-switcher__option-label">Forest</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-      <li role="option" data-theme-option="ice" aria-selected="false">
-        <button type="button" class="theme-switcher__option" data-theme-value="ice">
-          <span class="theme-switcher__option-icon" aria-hidden="true">🧊</span>
-          <span class="theme-switcher__option-label">Ice</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-      <li role="option" data-theme-option="dark" aria-selected="false">
-        <button type="button" class="theme-switcher__option" data-theme-value="dark">
-          <span class="theme-switcher__option-icon" aria-hidden="true">⚫</span>
-          <span class="theme-switcher__option-label">Dark</span>
-          <ion-icon name="checkmark" class="theme-switcher__check"></ion-icon>
-        </button>
-      </li>
-    </ul>
-  </div>
+<body data-theme="dark" class="page-resume">
 
   <!-- ============================= -->
   <!-- VOXEL WORLD BACKGROUND        -->
@@ -230,6 +167,17 @@
           <li><a href="projects.html" class="hud-nav__link">Projects</a></li>
           <li><a href="contact.html" class="hud-nav__link">Comms</a></li>
         </ul>
+        <div class="theme-switcher" data-theme-switcher>
+          <button class="theme-switcher__btn" type="button" data-theme-toggle aria-haspopup="listbox" aria-expanded="false" aria-label="Select color theme" title="Change appearance">
+            <ion-icon name="color-palette-outline" class="theme-switcher__icon" aria-hidden="true"></ion-icon>
+          </button>
+          <ul class="theme-switcher__menu" data-theme-menu role="listbox" aria-label="Color themes" tabindex="-1">
+            <li role="option" data-theme-option="dark" aria-selected="true"><button type="button" class="theme-switcher__option" data-theme-value="dark"><ion-icon name="moon-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Dark</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
+            <li role="option" data-theme-option="light" aria-selected="false"><button type="button" class="theme-switcher__option" data-theme-value="light"><ion-icon name="sunny-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Light</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
+            <li role="option" data-theme-option="arcade-dark" aria-selected="false"><button type="button" class="theme-switcher__option" data-theme-value="arcade-dark"><ion-icon name="game-controller-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Arcade Dark</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
+            <li role="option" data-theme-option="arcade-light" aria-selected="false"><button type="button" class="theme-switcher__option" data-theme-value="arcade-light"><ion-icon name="extension-puzzle-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Arcade Light</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
+          </ul>
+        </div>
       </nav>
 
 

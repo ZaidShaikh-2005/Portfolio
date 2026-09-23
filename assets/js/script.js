@@ -11,7 +11,7 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var THEME_KEY = 'zs-dev-world-theme';
-  var VALID_THEMES = ['night', 'day', 'neon', 'forest', 'ice', 'dark'];
+  var VALID_THEMES = ['dark', 'light', 'arcade-dark', 'arcade-light'];
 
 
   /*-----------------------------------*\
@@ -28,7 +28,7 @@
 
     function applyTheme(theme, opts) {
       opts = opts || {};
-      if (VALID_THEMES.indexOf(theme) === -1) theme = 'night';
+      if (VALID_THEMES.indexOf(theme) === -1) theme = 'dark';
 
       document.body.setAttribute('data-theme', theme);
 
@@ -91,7 +91,7 @@
     if (saved && VALID_THEMES.indexOf(saved) !== -1) {
       applyTheme(saved, { pulse: false });
     } else {
-      applyTheme(document.body.getAttribute('data-theme') || 'night', { pulse: false });
+      applyTheme(document.body.getAttribute('data-theme') || 'dark', { pulse: false });
     }
   }
 
