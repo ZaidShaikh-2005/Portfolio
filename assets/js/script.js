@@ -32,6 +32,19 @@
 
       document.body.setAttribute('data-theme', theme);
 
+      // Keep the coding animation visually matched to the selected site theme.
+      var developerLottie = document.querySelector('[data-developer-lottie]');
+      if (developerLottie) {
+        var animationSources = {
+          'dark': './assets/animations/developer-dark.lottie',
+          'light': './assets/animations/developer-light.lottie',
+          'arcade-dark': './assets/animations/developer-arcade-dark.lottie',
+          'arcade-light': './assets/animations/developer-arcade-light.lottie'
+        };
+        var nextSource = animationSources[theme] || animationSources.dark;
+        if (developerLottie.getAttribute('src') !== nextSource) developerLottie.setAttribute('src', nextSource);
+      }
+
       try { window.localStorage.setItem(THEME_KEY, theme); } catch (e) { /* storage unavailable */ }
 
       options.forEach(function (btn) {
@@ -381,13 +394,39 @@
     #CARD-3D MOUSE PARALLAX TILT
   \*-----------------------------------*/
 
+
+
+  /*-----------------------------------*\\
+    #PROFILE TYPING ANIMATIONS
+  \\*-----------------------------------*/
+  function initProfileTyping() {
+    var nameEl = document.querySelector('[data-name-typing]');
+    var roleEl = document.querySelector('[data-role-typing]');
+    if (!nameEl || !roleEl) return;
+
+    var names = ['Zaid Shaikh', 'ज़ैद शेख', 'زید شیخ', 'ザイド・シャイフ', '扎伊德·谢赫', 'Заид Шейх'];
+    var roles = ['Software Developer', 'Embedded Systems & IoT', 'AI/ML Enthusiast', 'Python • C++ • Django', 'Building Real-World Solutions'];
+    if (prefersReducedMotion) { nameEl.textContent = names[0]; roleEl.textContent = roles[0]; return; }
+
+    function typer(el, words, typeSpeed, hold, eraseSpeed) {
+      var wi=0, ci=0, deleting=false;
+      function tick(){
+        var word=words[wi];
+        if(!deleting){ ci++; el.textContent=word.slice(0,ci); if(ci>=word.length){ deleting=true; return setTimeout(tick,hold); } setTimeout(tick,typeSpeed); }
+        else { ci--; el.textContent=word.slice(0,Math.max(0,ci)); if(ci<=0){ deleting=false; wi=(wi+1)%words.length; return setTimeout(tick,350); } setTimeout(tick,eraseSpeed); }
+      }
+      tick();
+    }
+    typer(nameEl,names,85,1250,42);
+    window.setTimeout(function(){ typer(roleEl,roles,55,1150,28); },450);
+  }
   function initCardTilt() {
     if (prefersReducedMotion) return;
 
     var supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (!supportsFinePointer) return;
 
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.card-3d'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.card-3d:not(.profile-hud)'));
     if (!cards.length) return;
 
     cards.forEach(function (card) {
@@ -442,6 +481,7 @@
     initProjectFilters();
     initContactForm();
     initAvatarLightbox();
+    initProfileTyping();
     initCardTilt();
   });
 

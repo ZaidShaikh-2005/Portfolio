@@ -51,107 +51,46 @@
   <main class="game-shell" data-game-shell>
 
     <!-- PLAYER PROFILE CARD -->
-    <aside class="player-card card-3d" data-sidebar>
-      <div class="card-3d__inner">
-        <div class="card-3d__glass"></div>
-        <div class="card-3d__decor" aria-hidden="true">
-          <span class="card-3d__orb card-3d__orb--a"></span>
-          <span class="card-3d__orb card-3d__orb--b"></span>
+    <aside class="player-card card-3d profile-hud" data-sidebar>
+      <div class="card-3d__inner"><div class="card-3d__glass"></div><div class="card-3d__content profile-hud__content">
+        <div class="profile-hud__topline">
+          <span><ion-icon name="location-outline"></ion-icon> Mumbai, India</span>
+          <span class="profile-hud__status"><i></i> Available for internships</span>
         </div>
-        <div class="card-3d__content">
-
-          <div class="player-card__head">
-
-            <figure class="player-card__avatar">
-              <img src="./assets/images/my-avatar.png" alt="Zaid Shaikh" width="80">
-            </figure>
-
-            <div class="player-card__id">
-              <p class="player-card__label">Player Profile</p>
-              <h1 class="player-card__name">ZAID SHAIKH</h1>
-              <p class="player-card__title">Aspiring Software Development Engineer</p>
-            </div>
-
-            <button class="player-card__toggle" data-sidebar-btn aria-expanded="false">
-              <span>Stats</span>
-              <ion-icon name="chevron-down"></ion-icon>
-            </button>
-
+        <div class="profile-hud__hero">
+          <button type="button" class="profile-hud__avatar" data-avatar-trigger aria-haspopup="dialog" aria-label="Open profile image">
+            <img src="./assets/images/my-avatar.png" alt="Zaid Shaikh profile photo">
+          </button>
+          <div class="profile-hud__identity">
+            <p class="profile-hud__hello">Hi, I'm</p>
+            <h1 class="profile-hud__name" data-name-typing aria-label="Zaid Shaikh">Zaid Shaikh</h1>
+            <p class="profile-hud__role"><span data-role-typing>Software Developer</span><span class="typing-caret" aria-hidden="true"></span></p>
           </div>
-
-          <div class="player-card__body">
-
-            <div class="player-card__level-row">
-              <span class="tag tag--gold">Level · Developer</span>
-            </div>
-
-            <div class="xp-block">
-              <div class="xp-block__label">
-                <span>XP</span>
-                <span>92%</span>
-              </div>
-              <div class="xp-bar">
-                <div class="xp-bar__fill" style="width: 92%;"></div>
-              </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <ul class="player-card__stats">
-
-              <li class="player-card__stat">
-                <div class="stat-icon"><ion-icon name="mail-outline"></ion-icon></div>
-                <div class="player-card__stat-text">
-                  <p class="player-card__stat-label">Email</p>
-                  <a href="mailto:iamzaidshaikh2005@gmail.com" class="player-card__stat-value">iamzaidshaikh2005@gmail.com</a>
-                </div>
-              </li>
-
-              <li class="player-card__stat">
-                <div class="stat-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
-                <div class="player-card__stat-text">
-                  <p class="player-card__stat-label">Phone</p>
-                  <a href="tel:+917977147756" class="player-card__stat-value">+91 7977147756</a>
-                </div>
-              </li>
-
-              <li class="player-card__stat">
-                <div class="stat-icon"><ion-icon name="school-outline"></ion-icon></div>
-                <div class="player-card__stat-text">
-                  <p class="player-card__stat-label">Education</p>
-                  <p class="player-card__stat-value">B.Tech EXTC, SPIT (Exp. 2028)</p>
-                </div>
-              </li>
-
-              <li class="player-card__stat">
-                <div class="stat-icon"><ion-icon name="location-outline"></ion-icon></div>
-                <div class="player-card__stat-text">
-                  <p class="player-card__stat-label">Location</p>
-                  <address class="player-card__stat-value">Mumbai, Maharashtra, India</address>
-                </div>
-              </li>
-
-            </ul>
-
-            <div class="divider"></div>
-
-            <ul class="player-card__links">
-              <li>
-                <a href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
-                  <ion-icon name="logo-github"></ion-icon>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/zaid-shaikh-2OO5" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
-                  <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-              </li>
-            </ul>
-
-          </div>
-
+          <button class="player-card__toggle" data-sidebar-btn aria-expanded="false" aria-label="Toggle profile details"><ion-icon name="chevron-down"></ion-icon></button>
         </div>
-      </div>
+        <div class="profile-hud__quick-tags">
+          <span>B.Tech EXTC @ SPIT</span><span>Minor · Computer Engg.</span><span>Mumbai</span>
+        </div>
+        <div class="profile-hud__skills-label">TOP SKILLS</div>
+        <div class="profile-hud__skills"><span>Python</span><span>Django</span><span>AI / ML</span><span>Embedded</span><span>IoT</span><span>Computer Vision</span></div>
+        <div class="player-card__body profile-hud__more">
+          <div class="profile-hud__links">
+            <a class="social-github" href="https://github.com/ZaidShaikh-2005" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><span class="social-icon"><ion-icon name="logo-github"></ion-icon></span></a>
+            <a class="social-linkedin" href="https://www.linkedin.com/in/zaid-shaikh-2oo5/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><span class="social-icon"><ion-icon name="logo-linkedin"></ion-icon></span></a>
+            <a class="social-email" href="mailto:iamzaid.shaikh2005@gmail.com" aria-label="Email" title="Email"><span class="social-icon"><ion-icon name="mail"></ion-icon></span></a>
+            <a class="social-kaggle" href="https://www.kaggle.com/zzaidshaikh" target="_blank" rel="noopener" aria-label="Kaggle" title="Kaggle"><span class="social-icon social-letter">K</span></a>
+            <a class="social-leetcode" href="https://leetcode.com/u/zaid_shaikh13105/" target="_blank" rel="noopener" aria-label="LeetCode" title="LeetCode"><span class="social-icon"><ion-icon name="code-slash-outline"></ion-icon></span></a>
+            <a href="https://drive.google.com/file/d/1CCa0gvIoTdfqLcWePOuW0FI9dDd6NgCE/view?usp=drive_link" target="_blank" rel="noopener" class="profile-hud__resume"><ion-icon name="document-text-outline"></ion-icon><span>Resume</span></a>
+          </div>
+          <div class="profile-hud__gif" aria-label="Developer animation">
+            <dotlottie-player class="profile-hud__lottie" data-developer-lottie src="./assets/animations/developer-dark.lottie" background="transparent" speed="1" loop autoplay aria-label="Developer coding animation"></dotlottie-player>
+          </div>
+          <div class="profile-hud__gif-caption">BUILDING • LEARNING • INNOVATING</div>
+          <div class="profile-hud__spacer" aria-hidden="true"></div>
+          <div style="display:none">
+          </div>
+        </div>
+      </div></div>
     </aside>
 
 
@@ -314,7 +253,17 @@
 
   </main>
 
+
+  <div class="avatar-lightbox" data-avatar-lightbox aria-hidden="true">
+    <div class="avatar-lightbox__backdrop" data-avatar-backdrop></div>
+    <div class="avatar-lightbox__container" data-avatar-dialog role="dialog" aria-modal="true" aria-label="Zaid Shaikh profile image">
+      <div class="avatar-lightbox__frame"><img class="avatar-lightbox__image" src="./assets/images/my-avatar.png" alt="Zaid Shaikh profile photo"></div>
+      <button class="avatar-lightbox__close" type="button" data-avatar-close aria-label="Close profile image"><ion-icon name="close"></ion-icon></button>
+    </div>
+  </div>
+
   <!-- scripts -->
+  <script type="module" src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
   <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
