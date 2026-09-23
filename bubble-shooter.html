@@ -1,0 +1,3322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Zaid's Contribution Blaster</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(225, 0, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 247, 161, 0.07),
+            transparent 35%
+        ),
+        #070a0f;
+
+    color: #f0f6fc;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+
+    padding: 25px;
+}
+
+
+/* =====================================================
+   GAME WRAPPER
+===================================================== */
+
+.game-wrapper {
+
+    width: min(1180px, 96vw);
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title {
+
+    font-size: clamp(26px, 4vw, 42px);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ff32f5,
+            #00f7a1
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(225, 0, 255, 0.35)
+        );
+
+}
+
+
+.subtitle {
+
+    color: #8b949e;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   HUD
+===================================================== */
+
+.game-info {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.stat {
+
+    min-width: 130px;
+
+    padding: 8px 15px;
+
+    border: 1px solid #30363d;
+
+    border-radius: 8px;
+
+    background:
+        rgba(13, 17, 23, 0.75);
+
+    box-shadow:
+        0 0 15px rgba(225, 0, 255, 0.05);
+
+    color: #8b949e;
+
+    font-size: 13px;
+
+}
+
+
+.stat span {
+
+    color: #ff32f5;
+
+    font-weight: 800;
+
+    font-size: 16px;
+
+    margin-left: 5px;
+
+}
+
+
+#comboValue {
+
+    color: #00f7a1;
+
+}
+
+
+/* =====================================================
+   GAME AREA
+===================================================== */
+
+#game {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 620px;
+
+    border: 1px solid #30363d;
+
+    border-radius: 15px;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(225, 0, 255, 0.08),
+            transparent 42%
+        ),
+
+        #0d1117;
+
+    background-size:
+        30px 30px,
+        30px 30px,
+        auto,
+        auto;
+
+    overflow: hidden;
+
+    cursor: none;
+
+    box-shadow:
+
+        0 0 0 1px rgba(255,255,255,0.02),
+
+        0 0 35px rgba(225,0,255,0.08),
+
+        inset 0 0 45px rgba(0,0,0,0.4);
+
+}
+
+
+/* =====================================================
+   TOP GLOW
+===================================================== */
+
+#game::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 15%;
+
+    width: 70%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff32f5,
+            #00f7a1,
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px #ff32f5;
+
+    opacity: 0.8;
+
+}
+
+
+/* =====================================================
+   MONTH LABELS
+===================================================== */
+
+#months {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 70px;
+
+    height: 25px;
+
+    color: #8b949e;
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+}
+
+
+.month {
+
+    position: absolute;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =====================================================
+   DAY LABELS
+===================================================== */
+
+#days {
+
+    position: absolute;
+
+    top: 52px;
+
+    left: 10px;
+
+    width: 50px;
+
+    color: #8b949e;
+
+    font-size: 11px;
+
+    text-align: right;
+
+    pointer-events: none;
+
+}
+
+
+.day {
+
+    position: absolute;
+
+    right: 0;
+
+}
+
+
+/* =====================================================
+   CONTRIBUTION GRID
+===================================================== */
+
+#grid {
+
+    position: absolute;
+
+    top: 52px;
+
+    left: 70px;
+
+    display: grid;
+
+    grid-template-rows:
+        repeat(7, 13px);
+
+    grid-auto-flow: column;
+
+    grid-auto-columns: 13px;
+
+    gap: 4px;
+
+}
+
+
+.contribution {
+
+    width: 13px;
+
+    height: 13px;
+
+    border-radius: 2px;
+
+    background: #161b22;
+
+    transition:
+        opacity 0.15s,
+        filter 0.15s;
+
+}
+
+
+.contribution[data-active="true"] {
+
+    animation:
+        contributionGlow
+        2.5s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes contributionGlow {
+
+    from {
+
+        filter:
+            brightness(0.95);
+
+    }
+
+    to {
+
+        filter:
+            brightness(1.18);
+
+    }
+
+}
+
+
+.level-0 {
+
+    background: #21262d;
+
+    opacity: 0.55;
+
+}
+
+
+.level-1 {
+
+    background: #5a1266;
+
+}
+
+
+.level-2 {
+
+    background: #8f16a3;
+
+}
+
+
+.level-3 {
+
+    background: #c71be0;
+
+}
+
+
+.level-4 {
+
+    background: #f229ff;
+
+    box-shadow:
+        0 0 6px rgba(242,41,255,0.45);
+
+}
+
+
+/* =====================================================
+   AIM LINE
+===================================================== */
+
+#aimLine {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 130px;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(255,50,245,0.85),
+            rgba(255,50,245,0.25),
+            transparent
+        );
+
+    transform-origin:
+        bottom center;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+}
+
+
+/* =====================================================
+   SHOOTER
+===================================================== */
+
+#shooter {
+
+    position: absolute;
+
+    width: 54px;
+
+    height: 54px;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    border:
+        3px solid #ff32f5;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #242b36 0%,
+            #161b22 65%,
+            #080a0e 100%
+        );
+
+    box-shadow:
+
+        0 0 10px rgba(255,50,245,0.9),
+
+        0 0 28px rgba(255,50,245,0.35),
+
+        inset 0 0 10px rgba(255,255,255,0.08);
+
+    z-index: 10;
+
+}
+
+
+#shooter::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 40px;
+
+    left: 50%;
+
+    top: -31px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        8px 8px 3px 3px;
+
+    background:
+
+        linear-gradient(
+            to top,
+            #a517bb,
+            #ff32f5,
+            #ffffff
+        );
+
+    box-shadow:
+
+        0 0 10px #ff32f5,
+
+        0 0 20px rgba(255,50,245,0.6);
+
+}
+
+
+#shooter::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+
+    height: 16px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #00f7a1;
+
+    box-shadow:
+
+        0 0 8px #00f7a1,
+
+        0 0 18px rgba(0,247,161,0.8);
+
+}
+
+
+/* =====================================================
+   BULLET
+===================================================== */
+
+.bullet {
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+
+        0 0 5px #ffffff,
+
+        0 0 12px #ff32f5,
+
+        0 0 24px #ff32f5;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particle {
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+}
+
+
+/* =====================================================
+   CROSSHAIR
+===================================================== */
+
+#crosshair {
+
+    position: absolute;
+
+    width: 25px;
+
+    height: 25px;
+
+    border:
+        2px solid #ff32f5;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    box-shadow:
+
+        0 0 8px #ff32f5,
+
+        inset 0 0 8px rgba(255,50,245,0.5);
+
+}
+
+
+#crosshair::before,
+#crosshair::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 6px #ff32f5;
+
+}
+
+
+#crosshair::before {
+
+    width: 35px;
+
+    height: 1px;
+
+    left: -7px;
+
+    top: 10px;
+
+}
+
+
+#crosshair::after {
+
+    width: 1px;
+
+    height: 35px;
+
+    left: 10px;
+
+    top: -7px;
+
+}
+
+
+/* =====================================================
+   COMPLETION MESSAGE
+===================================================== */
+
+#message {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.7);
+
+    width: 100%;
+
+    padding: 20px;
+
+    font-size:
+        clamp(30px, 5vw, 58px);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    text-shadow:
+
+        0 0 10px #ffffff,
+
+        0 0 20px #ff32f5,
+
+        0 0 40px #ff32f5;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+
+}
+
+
+#message.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
+
+
+/* =====================================================
+   INSTRUCTIONS
+===================================================== */
+
+.instructions {
+
+    margin-top: 15px;
+
+    color: #8b949e;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.instructions strong {
+
+    color: #ff32f5;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    body {
+
+        padding: 10px;
+
+    }
+
+
+    #game {
+
+        height: 570px;
+
+    }
+
+
+    #grid {
+
+        transform:
+            scale(0.72);
+
+        transform-origin:
+            top left;
+
+    }
+
+
+    #months {
+
+        display: none;
+
+    }
+
+
+    #days {
+
+        display: none;
+
+    }
+
+
+    .game-info {
+
+        gap: 8px;
+
+    }
+
+
+    .stat {
+
+        min-width: auto;
+
+        padding:
+            7px 10px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="game-wrapper">
+
+
+    <h1 class="title">
+        Contribution Blaster
+    </h1>
+
+
+    <p class="subtitle">
+        Destroy Zaid's GitHub contribution graph.
+    </p>
+
+
+    <div class="game-info">
+
+
+        <div class="stat">
+
+            SCORE
+
+            <span id="score">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            REMAINING
+
+            <span id="remaining">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            COMBO
+
+            <span id="comboValue">
+                x1
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <div id="game">
+
+
+        <div id="months"></div>
+
+
+        <div id="days"></div>
+
+
+        <div id="grid"></div>
+
+
+        <div id="aimLine"></div>
+
+
+        <div id="shooter"></div>
+
+
+        <div id="crosshair"></div>
+
+
+        <div id="message">
+
+            GRAPH DESTROYED!
+
+        </div>
+
+
+    </div>
+
+
+    <div class="instructions">
+
+        <strong>MOVE</strong>
+        to aim
+
+        &nbsp; • &nbsp;
+
+        <strong>HOLD LEFT CLICK</strong>
+        for rapid fire
+
+        &nbsp; • &nbsp;
+
+        <strong>R</strong>
+        to restart
+
+        &nbsp; • &nbsp;
+
+        Destroy every contribution!
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   REFERENCES
+===================================================== */
+
+const game =
+    document.getElementById("game");
+
+const grid =
+    document.getElementById("grid");
+
+const shooter =
+    document.getElementById("shooter");
+
+const aimLine =
+    document.getElementById("aimLine");
+
+const crosshair =
+    document.getElementById("crosshair");
+
+const scoreElement =
+    document.getElementById("score");
+
+const remainingElement =
+    document.getElementById("remaining");
+
+const comboElement =
+    document.getElementById("comboValue");
+
+const message =
+    document.getElementById("message");
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const ROWS = 7;
+
+const COLS = 53;
+
+
+/*
+    Lower number = faster firing.
+
+    90ms gives a fast arcade-style
+    continuous fire rate.
+*/
+
+const FIRE_RATE = 90;
+
+
+const BULLET_SPEED = 14;
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let score = 0;
+
+let remaining = 0;
+
+let mouseX = 0;
+
+let mouseY = 0;
+
+let angle =
+    -Math.PI / 2;
+
+let gameFinished = false;
+
+let isFiring = false;
+
+let fireInterval = null;
+
+let combo = 0;
+
+let comboTimer = null;
+
+
+/* =====================================================
+   MONTH LABELS
+===================================================== */
+
+const monthData = [
+
+    ["Oct", 2],
+
+    ["Nov", 6],
+
+    ["Dec", 11],
+
+    ["Jan", 15],
+
+    ["Feb", 19],
+
+    ["Mar", 24],
+
+    ["Apr", 28],
+
+    ["May", 33],
+
+    ["Jun", 37],
+
+    ["Jul", 41],
+
+    ["Aug", 46],
+
+    ["Sep", 50]
+
+];
+
+
+const months =
+    document.getElementById("months");
+
+
+monthData.forEach(
+    ([name, column]) => {
+
+        const element =
+            document.createElement(
+                "span"
+            );
+
+        element.className =
+            "month";
+
+        element.textContent =
+            name;
+
+        element.style.left =
+            (column * 17) +
+            "px";
+
+        months.appendChild(
+            element
+        );
+
+    }
+);
+
+
+/* =====================================================
+   DAY LABELS
+===================================================== */
+
+const days =
+    document.getElementById("days");
+
+
+[
+
+    ["Mon", 17],
+
+    ["Wed", 51],
+
+    ["Fri", 85]
+
+].forEach(
+
+    ([name, y]) => {
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+        element.className =
+            "day";
+
+        element.textContent =
+            name;
+
+        element.style.top =
+            y + "px";
+
+        days.appendChild(
+            element
+        );
+
+    }
+
+);
+
+
+/* =====================================================
+   CREATE CONTRIBUTION GRAPH
+===================================================== */
+
+function createGraph() {
+
+
+    /*
+        Remove existing bullets,
+        particles and temporary effects.
+    */
+
+    document
+        .querySelectorAll(
+            ".bullet, .particle, .temporary-effect"
+        )
+        .forEach(
+            element =>
+                element.remove()
+        );
+
+
+    grid.innerHTML = "";
+
+
+    score = 0;
+
+    remaining = 0;
+
+    combo = 0;
+
+    gameFinished = false;
+
+
+    scoreElement.textContent =
+        "0";
+
+    comboElement.textContent =
+        "x1";
+
+
+    message.classList.remove(
+        "show"
+    );
+
+
+    for (
+        let column = 0;
+        column < COLS;
+        column++
+    ) {
+
+
+        for (
+            let row = 0;
+            row < ROWS;
+            row++
+        ) {
+
+
+            const block =
+                document.createElement(
+                    "div"
+                );
+
+
+            block.classList.add(
+                "contribution"
+            );
+
+
+            const random =
+                Math.random();
+
+
+            let level;
+
+
+            if (random < 0.12) {
+
+                level = 0;
+
+            }
+
+
+            else if (
+                random < 0.30
+            ) {
+
+                level = 1;
+
+            }
+
+
+            else if (
+                random < 0.52
+            ) {
+
+                level = 2;
+
+            }
+
+
+            else if (
+                random < 0.76
+            ) {
+
+                level = 3;
+
+            }
+
+
+            else {
+
+                level = 4;
+
+            }
+
+
+            block.classList.add(
+                "level-" + level
+            );
+
+
+            block.dataset.active =
+                level === 0
+                    ? "false"
+                    : "true";
+
+
+            if (level !== 0) {
+
+                remaining++;
+
+            }
+
+
+            grid.appendChild(
+                block
+            );
+
+        }
+
+    }
+
+
+    remainingElement.textContent =
+        remaining;
+
+}
+
+
+/* =====================================================
+   INITIAL GRAPH
+===================================================== */
+
+createGraph();
+
+
+/* =====================================================
+   MOUSE MOVEMENT
+===================================================== */
+
+game.addEventListener(
+    "mousemove",
+    event => {
+
+
+        const rect =
+            game.getBoundingClientRect();
+
+
+        mouseX =
+            event.clientX -
+            rect.left;
+
+
+        mouseY =
+            event.clientY -
+            rect.top;
+
+
+        crosshair.style.left =
+            mouseX + "px";
+
+
+        crosshair.style.top =
+            mouseY + "px";
+
+
+        updateAim();
+
+    }
+);
+
+
+/* =====================================================
+   MOUSE ENTER / LEAVE
+===================================================== */
+
+game.addEventListener(
+    "mouseenter",
+    () => {
+
+        crosshair.style.display =
+            "block";
+
+    }
+);
+
+
+game.addEventListener(
+    "mouseleave",
+    () => {
+
+        crosshair.style.display =
+            "none";
+
+        stopFiring();
+
+    }
+);
+
+
+/* =====================================================
+   AIM
+===================================================== */
+
+function updateAim() {
+
+
+    const gameRect =
+        game.getBoundingClientRect();
+
+
+    const shooterRect =
+        shooter.getBoundingClientRect();
+
+
+    const shooterX =
+
+        shooterRect.left -
+
+        gameRect.left +
+
+        shooterRect.width / 2;
+
+
+    const shooterY =
+
+        shooterRect.top -
+
+        gameRect.top +
+
+        shooterRect.height / 2;
+
+
+    const dx =
+        mouseX -
+        shooterX;
+
+
+    const dy =
+        mouseY -
+        shooterY;
+
+
+    /*
+        Prevent downward shooting.
+    */
+
+    if (dy > -20) {
+
+        return;
+
+    }
+
+
+    angle =
+        Math.atan2(
+            dy,
+            dx
+        );
+
+
+    const length =
+
+        Math.min(
+
+            160,
+
+            Math.sqrt(
+                dx * dx +
+                dy * dy
+            )
+
+        );
+
+
+    aimLine.style.left =
+        shooterX + "px";
+
+
+    aimLine.style.top =
+        (
+            shooterY -
+            length
+        ) +
+        "px";
+
+
+    aimLine.style.height =
+        length +
+        "px";
+
+
+    aimLine.style.transform =
+
+        "rotate(" +
+
+        (
+            angle +
+            Math.PI / 2
+        ) +
+
+        "rad)";
+
+}
+
+
+/* =====================================================
+   HOLD LEFT CLICK
+===================================================== */
+
+game.addEventListener(
+    "mousedown",
+    event => {
+
+
+        if (
+            event.button !== 0
+        ) {
+
+            return;
+
+        }
+
+
+        startFiring();
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseup",
+    stopFiring
+);
+
+
+/* =====================================================
+   START RAPID FIRE
+===================================================== */
+
+function startFiring() {
+
+
+    if (
+        gameFinished ||
+        isFiring
+    ) {
+
+        return;
+
+    }
+
+
+    isFiring = true;
+
+
+    /*
+        Fire immediately instead
+        of waiting for interval.
+    */
+
+    shoot();
+
+
+    fireInterval =
+        setInterval(
+
+            () => {
+
+
+                if (
+                    !gameFinished
+                ) {
+
+                    shoot();
+
+                }
+
+            },
+
+            FIRE_RATE
+
+        );
+
+}
+
+
+/* =====================================================
+   STOP RAPID FIRE
+===================================================== */
+
+function stopFiring() {
+
+
+    isFiring = false;
+
+
+    if (fireInterval) {
+
+        clearInterval(
+            fireInterval
+        );
+
+    }
+
+
+    fireInterval = null;
+
+}
+
+
+/* =====================================================
+   TOUCH CONTROLS
+===================================================== */
+
+game.addEventListener(
+
+    "touchstart",
+
+    event => {
+
+
+        event.preventDefault();
+
+
+        const touch =
+            event.touches[0];
+
+
+        const rect =
+            game.getBoundingClientRect();
+
+
+        mouseX =
+            touch.clientX -
+            rect.left;
+
+
+        mouseY =
+            touch.clientY -
+            rect.top;
+
+
+        updateAim();
+
+
+        startFiring();
+
+    },
+
+    {
+        passive: false
+    }
+
+);
+
+
+game.addEventListener(
+
+    "touchmove",
+
+    event => {
+
+
+        event.preventDefault();
+
+
+        const touch =
+            event.touches[0];
+
+
+        const rect =
+            game.getBoundingClientRect();
+
+
+        mouseX =
+            touch.clientX -
+            rect.left;
+
+
+        mouseY =
+            touch.clientY -
+            rect.top;
+
+
+        updateAim();
+
+    },
+
+    {
+        passive: false
+    }
+
+);
+
+
+game.addEventListener(
+
+    "touchend",
+
+    event => {
+
+
+        event.preventDefault();
+
+
+        stopFiring();
+
+    },
+
+    {
+        passive: false
+    }
+
+);
+
+
+/* =====================================================
+   SHOOT
+===================================================== */
+
+function shoot() {
+
+
+    if (gameFinished) {
+
+        return;
+
+    }
+
+
+    const gameRect =
+        game.getBoundingClientRect();
+
+
+    const shooterRect =
+        shooter.getBoundingClientRect();
+
+
+    let x =
+
+        shooterRect.left -
+
+        gameRect.left +
+
+        shooterRect.width / 2;
+
+
+    let y =
+
+        shooterRect.top -
+
+        gameRect.top;
+
+
+    const bullet =
+        document.createElement(
+            "div"
+        );
+
+
+    bullet.className =
+        "bullet";
+
+
+    game.appendChild(
+        bullet
+    );
+
+
+    let velocityX =
+
+        Math.cos(angle) *
+
+        BULLET_SPEED;
+
+
+    let velocityY =
+
+        Math.sin(angle) *
+
+        BULLET_SPEED;
+
+
+    createMuzzleFlash(
+        x,
+        y
+    );
+
+
+    function animateBullet() {
+
+
+        x += velocityX;
+
+        y += velocityY;
+
+
+        /*
+            LEFT WALL
+        */
+
+        if (x <= 7) {
+
+
+            x = 7;
+
+
+            velocityX *= -1;
+
+
+            createWallSpark(
+                x,
+                y
+            );
+
+        }
+
+
+        /*
+            RIGHT WALL
+        */
+
+        if (
+            x >=
+            game.clientWidth - 7
+        ) {
+
+
+            x =
+                game.clientWidth -
+                7;
+
+
+            velocityX *= -1;
+
+
+            createWallSpark(
+                x,
+                y
+            );
+
+        }
+
+
+        bullet.style.left =
+            (x - 6) +
+            "px";
+
+
+        bullet.style.top =
+            (y - 6) +
+            "px";
+
+
+        createTrail(
+            x,
+            y
+        );
+
+
+        const hit =
+            detectCollision(
+                x,
+                y
+            );
+
+
+        if (hit) {
+
+
+            destroyContribution(
+                hit
+            );
+
+
+            bullet.remove();
+
+
+            return;
+
+        }
+
+
+        /*
+            Bullet left top of screen.
+        */
+
+        if (y < -25) {
+
+
+            bullet.remove();
+
+
+            return;
+
+        }
+
+
+        requestAnimationFrame(
+            animateBullet
+        );
+
+    }
+
+
+    animateBullet();
+
+}
+
+
+/* =====================================================
+   BULLET TRAIL
+===================================================== */
+
+function createTrail(
+    x,
+    y
+) {
+
+
+    /*
+        Reduce number of particles
+        for better performance.
+    */
+
+    if (
+        Math.random() >
+        0.60
+    ) {
+
+        return;
+
+    }
+
+
+    const trail =
+        document.createElement(
+            "div"
+        );
+
+
+    trail.className =
+        "temporary-effect";
+
+
+    trail.style.position =
+        "absolute";
+
+
+    trail.style.width =
+        "4px";
+
+
+    trail.style.height =
+        "4px";
+
+
+    trail.style.borderRadius =
+        "50%";
+
+
+    trail.style.background =
+        "#ff32f5";
+
+
+    trail.style.boxShadow =
+        "0 0 8px #ff32f5";
+
+
+    trail.style.left =
+        (x - 2) +
+        "px";
+
+
+    trail.style.top =
+        (y - 2) +
+        "px";
+
+
+    trail.style.pointerEvents =
+        "none";
+
+
+    trail.style.zIndex =
+        "15";
+
+
+    game.appendChild(
+        trail
+    );
+
+
+    trail.animate(
+
+        [
+
+            {
+
+                opacity: 0.8,
+
+                transform:
+                    "scale(1)"
+
+            },
+
+            {
+
+                opacity: 0,
+
+                transform:
+                    "scale(0)"
+
+            }
+
+        ],
+
+        {
+
+            duration: 180,
+
+            easing: "linear"
+
+        }
+
+    );
+
+
+    setTimeout(
+
+        () =>
+            trail.remove(),
+
+        190
+
+    );
+
+}
+
+
+/* =====================================================
+   MUZZLE FLASH
+===================================================== */
+
+function createMuzzleFlash(
+    x,
+    y
+) {
+
+
+    const flash =
+        document.createElement(
+            "div"
+        );
+
+
+    flash.className =
+        "temporary-effect";
+
+
+    flash.style.position =
+        "absolute";
+
+
+    flash.style.width =
+        "24px";
+
+
+    flash.style.height =
+        "24px";
+
+
+    flash.style.borderRadius =
+        "50%";
+
+
+    flash.style.background =
+        "#ffffff";
+
+
+    flash.style.boxShadow =
+
+        "0 0 15px #ffffff," +
+
+        "0 0 30px #ff32f5";
+
+
+    flash.style.left =
+        (x - 12) +
+        "px";
+
+
+    flash.style.top =
+        (y - 12) +
+        "px";
+
+
+    flash.style.pointerEvents =
+        "none";
+
+
+    flash.style.zIndex =
+        "30";
+
+
+    game.appendChild(
+        flash
+    );
+
+
+    flash.animate(
+
+        [
+
+            {
+
+                transform:
+                    "scale(0.6)",
+
+                opacity: 1
+
+            },
+
+            {
+
+                transform:
+                    "scale(2.5)",
+
+                opacity: 0
+
+            }
+
+        ],
+
+        {
+
+            duration: 100,
+
+            easing: "ease-out"
+
+        }
+
+    );
+
+
+    setTimeout(
+
+        () =>
+            flash.remove(),
+
+        110
+
+    );
+
+}
+
+
+/* =====================================================
+   WALL SPARK
+===================================================== */
+
+function createWallSpark(
+    x,
+    y
+) {
+
+
+    for (
+        let i = 0;
+        i < 4;
+        i++
+    ) {
+
+
+        const spark =
+            document.createElement(
+                "div"
+            );
+
+
+        spark.className =
+            "temporary-effect";
+
+
+        spark.style.position =
+            "absolute";
+
+
+        spark.style.width =
+            "3px";
+
+
+        spark.style.height =
+            "3px";
+
+
+        spark.style.borderRadius =
+            "50%";
+
+
+        spark.style.background =
+            "#ffffff";
+
+
+        spark.style.boxShadow =
+            "0 0 8px #ff32f5";
+
+
+        spark.style.left =
+            x + "px";
+
+
+        spark.style.top =
+            y + "px";
+
+
+        spark.style.pointerEvents =
+            "none";
+
+
+        game.appendChild(
+            spark
+        );
+
+
+        const direction =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distance =
+            10 +
+            Math.random() *
+            15;
+
+
+        spark.animate(
+
+            [
+
+                {
+
+                    transform:
+                        "translate(0,0)",
+
+                    opacity: 1
+
+                },
+
+                {
+
+                    transform:
+
+                        `translate(
+                            ${Math.cos(direction) * distance}px,
+                            ${Math.sin(direction) * distance}px
+                        )`,
+
+                    opacity: 0
+
+                }
+
+            ],
+
+            {
+
+                duration: 180
+
+            }
+
+        );
+
+
+        setTimeout(
+
+            () =>
+                spark.remove(),
+
+            190
+
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   COLLISION DETECTION
+===================================================== */
+
+function detectCollision(
+    bulletX,
+    bulletY
+) {
+
+
+    const blocks =
+
+        document.querySelectorAll(
+
+            ".contribution[data-active='true']"
+
+        );
+
+
+    const gameRect =
+        game.getBoundingClientRect();
+
+
+    for (
+        const block
+        of blocks
+    ) {
+
+
+        const rect =
+            block.getBoundingClientRect();
+
+
+        const left =
+
+            rect.left -
+
+            gameRect.left;
+
+
+        const right =
+
+            rect.right -
+
+            gameRect.left;
+
+
+        const top =
+
+            rect.top -
+
+            gameRect.top;
+
+
+        const bottom =
+
+            rect.bottom -
+
+            gameRect.top;
+
+
+        if (
+
+            bulletX >=
+                left - 7 &&
+
+            bulletX <=
+                right + 7 &&
+
+            bulletY >=
+                top - 7 &&
+
+            bulletY <=
+                bottom + 7
+
+        ) {
+
+
+            return block;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   DESTROY CONTRIBUTION
+===================================================== */
+
+function destroyContribution(
+    block
+) {
+
+
+    if (
+        block.dataset.active
+        !== "true"
+    ) {
+
+        return;
+
+    }
+
+
+    block.dataset.active =
+        "false";
+
+
+    const rect =
+        block.getBoundingClientRect();
+
+
+    const gameRect =
+        game.getBoundingClientRect();
+
+
+    const centerX =
+
+        rect.left -
+
+        gameRect.left +
+
+        rect.width / 2;
+
+
+    const centerY =
+
+        rect.top -
+
+        gameRect.top +
+
+        rect.height / 2;
+
+
+    createExplosion(
+        centerX,
+        centerY
+    );
+
+
+    createShockwave(
+        centerX,
+        centerY
+    );
+
+
+    screenShake();
+
+
+    block.animate(
+
+        [
+
+            {
+
+                transform:
+                    "scale(1)",
+
+                opacity: 1
+
+            },
+
+            {
+
+                transform:
+                    "scale(3) rotate(35deg)",
+
+                opacity: 0
+
+            }
+
+        ],
+
+        {
+
+            duration: 180,
+
+            easing:
+                "ease-out"
+
+        }
+
+    );
+
+
+    setTimeout(
+
+        () => {
+
+            block.style.visibility =
+                "hidden";
+
+        },
+
+        170
+
+    );
+
+
+    /* -----------------
+       COMBO
+    ----------------- */
+
+
+    combo++;
+
+
+    clearTimeout(
+        comboTimer
+    );
+
+
+    comboTimer =
+        setTimeout(
+
+            () => {
+
+                combo = 0;
+
+                comboElement.textContent =
+                    "x1";
+
+            },
+
+            1000
+
+        );
+
+
+    const multiplier =
+        Math.min(
+            combo,
+            10
+        );
+
+
+    comboElement.textContent =
+        "x" +
+        multiplier;
+
+
+    const earned =
+        10 *
+        multiplier;
+
+
+    score += earned;
+
+
+    remaining--;
+
+
+    scoreElement.textContent =
+        score;
+
+
+    remainingElement.textContent =
+        remaining;
+
+
+    showFloatingScore(
+
+        centerX,
+
+        centerY,
+
+        earned,
+
+        multiplier
+
+    );
+
+
+    if (
+        remaining <= 0
+    ) {
+
+        finishGame();
+
+    }
+
+}
+
+
+/* =====================================================
+   EXPLOSION PARTICLES
+===================================================== */
+
+function createExplosion(
+    x,
+    y
+) {
+
+
+    const PARTICLES =
+        20;
+
+
+    const colors = [
+
+        "#ff32f5",
+
+        "#e100ff",
+
+        "#ffffff",
+
+        "#00f7a1",
+
+        "#8f16a3"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < PARTICLES;
+        i++
+    ) {
+
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+
+        particle.className =
+            "particle";
+
+
+        const size =
+            3 +
+            Math.random() *
+            5;
+
+
+        particle.style.width =
+            size +
+            "px";
+
+
+        particle.style.height =
+            size +
+            "px";
+
+
+        particle.style.left =
+            x +
+            "px";
+
+
+        particle.style.top =
+            y +
+            "px";
+
+
+        particle.style.background =
+
+            colors[
+
+                Math.floor(
+
+                    Math.random() *
+
+                    colors.length
+
+                )
+
+            ];
+
+
+        particle.style.boxShadow =
+
+            "0 0 7px " +
+
+            particle.style.background;
+
+
+        game.appendChild(
+            particle
+        );
+
+
+        const particleAngle =
+
+            Math.random() *
+
+            Math.PI *
+
+            2;
+
+
+        const speed =
+
+            2 +
+
+            Math.random() *
+
+            7;
+
+
+        let px = x;
+
+        let py = y;
+
+        let opacity = 1;
+
+
+        function animateParticle() {
+
+
+            px +=
+
+                Math.cos(
+                    particleAngle
+                ) *
+
+                speed;
+
+
+            py +=
+
+                Math.sin(
+                    particleAngle
+                ) *
+
+                speed;
+
+
+            opacity -=
+                0.045;
+
+
+            particle.style.left =
+                px +
+                "px";
+
+
+            particle.style.top =
+                py +
+                "px";
+
+
+            particle.style.opacity =
+                opacity;
+
+
+            if (
+                opacity <= 0
+            ) {
+
+
+                particle.remove();
+
+
+                return;
+
+            }
+
+
+            requestAnimationFrame(
+                animateParticle
+            );
+
+        }
+
+
+        animateParticle();
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOCKWAVE
+===================================================== */
+
+function createShockwave(
+    x,
+    y
+) {
+
+
+    const wave =
+        document.createElement(
+            "div"
+        );
+
+
+    wave.className =
+        "temporary-effect";
+
+
+    wave.style.position =
+        "absolute";
+
+
+    wave.style.left =
+        x +
+        "px";
+
+
+    wave.style.top =
+        y +
+        "px";
+
+
+    wave.style.width =
+        "10px";
+
+
+    wave.style.height =
+        "10px";
+
+
+    wave.style.border =
+        "2px solid #ff32f5";
+
+
+    wave.style.borderRadius =
+        "50%";
+
+
+    wave.style.transform =
+        "translate(-50%, -50%)";
+
+
+    wave.style.pointerEvents =
+        "none";
+
+
+    wave.style.zIndex =
+        "25";
+
+
+    game.appendChild(
+        wave
+    );
+
+
+    wave.animate(
+
+        [
+
+            {
+
+                width:
+                    "10px",
+
+                height:
+                    "10px",
+
+                opacity: 1
+
+            },
+
+            {
+
+                width:
+                    "65px",
+
+                height:
+                    "65px",
+
+                opacity: 0
+
+            }
+
+        ],
+
+        {
+
+            duration: 300,
+
+            easing:
+                "ease-out"
+
+        }
+
+    );
+
+
+    setTimeout(
+
+        () =>
+            wave.remove(),
+
+        310
+
+    );
+
+}
+
+
+/* =====================================================
+   SCREEN SHAKE
+===================================================== */
+
+function screenShake() {
+
+
+    game.animate(
+
+        [
+
+            {
+
+                transform:
+                    "translate(0,0)"
+
+            },
+
+            {
+
+                transform:
+                    "translate(2px,-1px)"
+
+            },
+
+            {
+
+                transform:
+                    "translate(-2px,1px)"
+
+            },
+
+            {
+
+                transform:
+                    "translate(1px,1px)"
+
+            },
+
+            {
+
+                transform:
+                    "translate(0,0)"
+
+            }
+
+        ],
+
+        {
+
+            duration: 90
+
+        }
+
+    );
+
+}
+
+
+/* =====================================================
+   FLOATING SCORE
+===================================================== */
+
+function showFloatingScore(
+
+    x,
+
+    y,
+
+    earned,
+
+    multiplier
+
+) {
+
+
+    const floating =
+        document.createElement(
+            "div"
+        );
+
+
+    floating.className =
+        "temporary-effect";
+
+
+    floating.style.position =
+        "absolute";
+
+
+    floating.style.left =
+        x +
+        "px";
+
+
+    floating.style.top =
+        y +
+        "px";
+
+
+    floating.style.color =
+        multiplier >= 4
+            ? "#00f7a1"
+            : "#ffffff";
+
+
+    floating.style.fontWeight =
+        "800";
+
+
+    floating.style.fontSize =
+
+        multiplier >= 4
+
+            ? "18px"
+
+            : "13px";
+
+
+    floating.style.textShadow =
+
+        "0 0 10px #ff32f5";
+
+
+    floating.style.pointerEvents =
+        "none";
+
+
+    floating.style.zIndex =
+        "70";
+
+
+    if (
+        multiplier > 1
+    ) {
+
+
+        floating.textContent =
+
+            "+" +
+
+            earned +
+
+            "  x" +
+
+            multiplier;
+
+    }
+
+
+    else {
+
+
+        floating.textContent =
+
+            "+" +
+
+            earned;
+
+    }
+
+
+    game.appendChild(
+        floating
+    );
+
+
+    floating.animate(
+
+        [
+
+            {
+
+                transform:
+                    "translate(-50%,0) scale(1)",
+
+                opacity: 1
+
+            },
+
+            {
+
+                transform:
+                    "translate(-50%,-50px) scale(1.25)",
+
+                opacity: 0
+
+            }
+
+        ],
+
+        {
+
+            duration: 650,
+
+            easing:
+                "ease-out"
+
+        }
+
+    );
+
+
+    setTimeout(
+
+        () =>
+            floating.remove(),
+
+        660
+
+    );
+
+}
+
+
+/* =====================================================
+   FINISH GAME
+===================================================== */
+
+function finishGame() {
+
+
+    gameFinished =
+        true;
+
+
+    stopFiring();
+
+
+    message.textContent =
+        "GRAPH DESTROYED!";
+
+
+    message.classList.add(
+        "show"
+    );
+
+
+    createVictoryExplosion();
+
+
+    setTimeout(
+
+        () => {
+
+            message.textContent =
+                "REBUILDING...";
+
+        },
+
+        1700
+
+    );
+
+
+    setTimeout(
+
+        () => {
+
+            createGraph();
+
+        },
+
+        3000
+
+    );
+
+}
+
+
+/* =====================================================
+   VICTORY EXPLOSION
+===================================================== */
+
+function createVictoryExplosion() {
+
+
+    let explosions = 0;
+
+
+    const victoryInterval =
+
+        setInterval(
+
+            () => {
+
+
+                const x =
+
+                    70 +
+
+                    Math.random() *
+
+                    (
+                        game.clientWidth -
+                        140
+                    );
+
+
+                const y =
+
+                    60 +
+
+                    Math.random() *
+
+                    300;
+
+
+                createExplosion(
+                    x,
+                    y
+                );
+
+
+                createShockwave(
+                    x,
+                    y
+                );
+
+
+                explosions++;
+
+
+                if (
+                    explosions >= 20
+                ) {
+
+
+                    clearInterval(
+                        victoryInterval
+                    );
+
+                }
+
+            },
+
+            75
+
+        );
+
+}
+
+
+/* =====================================================
+   R = MANUAL RESET
+===================================================== */
+
+window.addEventListener(
+
+    "keydown",
+
+    event => {
+
+
+        if (
+
+            event.key.toLowerCase()
+            === "r"
+
+        ) {
+
+
+            stopFiring();
+
+
+            createGraph();
+
+        }
+
+    }
+
+);
+
+
+/* =====================================================
+   INITIAL AIM
+===================================================== */
+
+setTimeout(
+
+    () => {
+
+
+        const rect =
+            game.getBoundingClientRect();
+
+
+        mouseX =
+            rect.width / 2;
+
+
+        mouseY =
+            200;
+
+
+        crosshair.style.left =
+            mouseX +
+            "px";
+
+
+        crosshair.style.top =
+            mouseY +
+            "px";
+
+
+        updateAim();
+
+    },
+
+    100
+
+);
+
+</script>
+
+
+</body>
+
+</html>
