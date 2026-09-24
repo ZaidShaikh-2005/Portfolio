@@ -80,9 +80,9 @@
             <a class="social-email" href="mailto:iamzaid.shaikh2005@gmail.com" aria-label="Email" title="Email"><span class="social-icon"><ion-icon name="mail"></ion-icon></span></a>
             <a class="social-kaggle" href="https://www.kaggle.com/zzaidshaikh" target="_blank" rel="noopener" aria-label="Kaggle" title="Kaggle"><span class="social-icon social-letter">K</span></a>
             <a class="social-leetcode" href="https://leetcode.com/u/zaid_shaikh13105/" target="_blank" rel="noopener" aria-label="LeetCode" title="LeetCode"><span class="social-icon"><ion-icon name="code-slash-outline"></ion-icon></span></a>
-            <a href="https://drive.google.com/file/d/1CCa0gvIoTdfqLcWePOuW0FI9dDd6NgCE/view?usp=drive_link" target="_blank" rel="noopener" class="profile-hud__resume"><ion-icon name="document-text-outline"></ion-icon><span>Resume</span></a>
           </div>
           <div class="profile-hud__gif" aria-label="Developer animation">
+            <button type="button" class="profile-hud__resume" data-resume-open aria-haspopup="dialog"><ion-icon name="document-text-outline"></ion-icon><span>Resume</span></button>
             <dotlottie-player class="profile-hud__lottie" data-developer-lottie src="./assets/animations/developer-dark.lottie" background="transparent" speed="1" loop autoplay aria-label="Developer coding animation"></dotlottie-player>
           </div>
           <div class="profile-hud__gif-caption">BUILDING • LEARNING • INNOVATING</div>
@@ -384,6 +384,20 @@
       <div class="avatar-lightbox__frame"><img class="avatar-lightbox__image" src="./assets/images/my-avatar.png" alt="Zaid Shaikh profile photo"></div>
       <button class="avatar-lightbox__close" type="button" data-avatar-close aria-label="Close profile image"><ion-icon name="close"></ion-icon></button>
     </div>
+  </div>
+
+  <!-- RESUME VIEWER: opens on the same page -->
+  <div class="resume-viewer" data-resume-viewer aria-hidden="true">
+    <div class="resume-viewer__backdrop" data-resume-backdrop></div>
+    <section class="resume-viewer__dialog" role="dialog" aria-modal="true" aria-label="Zaid Shaikh resume">
+      <header class="resume-viewer__header">
+        <div><ion-icon name="document-text-outline"></ion-icon><span>ZAID SHAIKH — RESUME</span></div>
+        <button type="button" class="resume-viewer__close" data-resume-close aria-label="Close resume"><ion-icon name="close"></ion-icon></button>
+      </header>
+      <div class="resume-viewer__frame-wrap">
+        <iframe class="resume-viewer__frame" src="https://drive.google.com/file/d/1CCa0gvIoTdfqLcWePOuW0FI9dDd6NgCE/preview" title="Zaid Shaikh Resume" loading="lazy" allow="autoplay"></iframe>
+      </div>
+    </section>
   </div>
 
   <!-- scripts -->

@@ -1440,3 +1440,199 @@ body[data-theme="arcade-light"] .profile-hud__gif { background:#fff8e8; }
   .profile-hud__gif img { max-height:190px; }
   .profile-hud__lottie { height:190px; }
 }
+\n\n/* ===== Readability + GIF resume overlay refinement ===== */
+/* Increase contrast so portfolio copy remains comfortable to read on every theme. */
+body[data-theme="dark"] { --ink-1:#dedee3; --ink-2:#aaaab3; }
+body[data-theme="arcade-dark"] { --ink-1:#d6dedc; --ink-2:#9ba8a4; }
+body[data-theme="light"] { --ink-1:#3e424b; --ink-2:#646a75; }
+body[data-theme="arcade-light"] { --ink-1:#414552; --ink-2:#646a78; }
+
+/* Sidebar: clearer labels, tags and supporting text. */
+.profile-hud__topline,
+.profile-hud__hello,
+.profile-hud__gif-caption { color:var(--ink-1); font-weight:600; }
+.profile-hud__quick-tags span,
+.profile-hud__skills span { color:var(--ink-0); font-weight:600; }
+.profile-hud__skills-label { font-size:9px; font-weight:700; }
+.profile-hud__role { color:var(--ink-0); }
+
+/* Main content: improve contrast without changing the gaming/voxel design. */
+.page__subtitle,
+.lore-text,
+.ability-card__text { color:var(--ink-1); }
+.lore-text { font-weight:500; line-height:1.75; }
+.ability-card__text { font-weight:500; line-height:1.65; }
+.stat-card__value { color:var(--ink-0); font-weight:700; }
+
+/* Resume button sits over the GIF at its top-right, like the reference layout. */
+.profile-hud__gif { position:relative; margin-top:16px; }
+.profile-hud__gif .profile-hud__resume {
+  position:absolute; top:10px; right:10px; z-index:5;
+  width:auto; min-width:112px; min-height:38px; padding:8px 12px;
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  border:2px solid var(--ink-0); border-radius:10px;
+  background:color-mix(in srgb, var(--panel) 90%, transparent);
+  color:var(--ink-0); font-size:10px; font-weight:800;
+  box-shadow:2px 2px 0 var(--stone);
+  backdrop-filter:blur(8px);
+  transition:border-color .18s ease, box-shadow .18s ease, color .18s ease;
+}
+.profile-hud__gif .profile-hud__resume:hover,
+.profile-hud__gif .profile-hud__resume:focus-visible {
+  border-color:var(--accent-primary); color:var(--accent-primary);
+  box-shadow:3px 3px 0 var(--accent-primary); outline:none;
+}
+.profile-hud__gif .profile-hud__resume span { display:inline; }
+
+@media (max-width:599px) {
+  .profile-hud__gif .profile-hud__resume { top:8px; right:8px; min-width:100px; min-height:34px; padding:6px 9px; font-size:9px; }
+}
+
+
+/* ===== Sidebar readability + in-page resume viewer ===== */
+/* Slightly larger sidebar typography while preserving the compact HUD layout. */
+.profile-hud__topline { font-size: 10px; }
+.profile-hud__hello { font-size: 10px; }
+.profile-hud__name { font-size: 21px; }
+.profile-hud__role { font-size: 15px; line-height: 1.35; }
+.profile-hud__quick-tags span { font-size: 9px; }
+.profile-hud__skills-label { font-size: 10px; }
+.profile-hud__skills span { font-size: 9px; }
+.profile-hud__gif-caption { font-size: 8px; }
+
+/* Button reset now that Resume opens a modal instead of navigating away. */
+button.profile-hud__resume { font-family: inherit; cursor: pointer; }
+
+/* Large same-page, scrollable resume overlay. */
+.resume-viewer {
+  position: fixed; inset: 0; z-index: 10000; display: none;
+  align-items: center; justify-content: center; padding: 28px;
+}
+.resume-viewer.is-open { display: flex; }
+.resume-viewer__backdrop {
+  position: absolute; inset: 0; background: rgba(3,5,9,.82);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.resume-viewer__dialog {
+  position: relative; z-index: 1; width: min(1120px, 94vw); height: min(90vh, 900px);
+  display: flex; flex-direction: column; overflow: hidden;
+  border: 2px solid var(--accent-primary); border-radius: 16px;
+  background: var(--panel); box-shadow: 8px 8px 0 rgba(0,0,0,.35), 0 0 35px color-mix(in srgb, var(--accent-primary) 22%, transparent);
+}
+.resume-viewer__header {
+  flex: 0 0 auto; min-height: 54px; padding: 10px 12px 10px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  border-bottom: 1px solid var(--stone-light); background: var(--panel-2);
+  color: var(--ink-0); font-family: var(--ff-display); font-size: 11px; letter-spacing: .04em;
+}
+.resume-viewer__header > div { display:flex; align-items:center; gap:9px; }
+.resume-viewer__header ion-icon { color: var(--accent-primary); font-size: 18px; }
+.resume-viewer__close {
+  width: 38px; height: 38px; display:grid; place-items:center; flex:0 0 auto;
+  border:1px solid var(--stone-light); border-radius:9px; background:var(--panel);
+  color:var(--ink-0); cursor:pointer; font-size:22px;
+}
+.resume-viewer__close:hover, .resume-viewer__close:focus-visible { border-color:var(--accent-primary); color:var(--accent-primary); outline:none; }
+.resume-viewer__frame-wrap { flex: 1 1 auto; min-height: 0; overflow: hidden; background:#202124; }
+.resume-viewer__frame { display:block; width:100%; height:100%; border:0; background:#fff; }
+body.has-resume-open { overflow: hidden; }
+
+@media (max-width: 599px) {
+  .profile-hud__topline { font-size: 9px; }
+  .profile-hud__name { font-size: 19px; }
+  .profile-hud__role { font-size: 13px; }
+  .profile-hud__quick-tags span, .profile-hud__skills span { font-size: 8px; }
+  .resume-viewer { padding: 10px; }
+  .resume-viewer__dialog { width: 100%; height: 94vh; border-radius: 12px; }
+  .resume-viewer__header { min-height: 48px; padding-left: 12px; font-size: 9px; }
+}
+
+/* ===== Theme-aware 3D hover depth for sidebar mini-cards =====
+   Visual-only enhancement: keeps layout/content unchanged. */
+.profile-hud__links a,
+.profile-hud__quick-tags span,
+.profile-hud__skills span,
+.profile-hud__gif,
+.profile-hud__resume {
+  position: relative;
+  transform: translate3d(0,0,0);
+  transition: transform .22s cubic-bezier(.2,.8,.2,1),
+              border-color .22s ease,
+              box-shadow .22s ease,
+              background-color .22s ease;
+}
+
+/* Use the active theme accent as the raised 3D layer behind every sidebar card. */
+.profile-hud__links a:hover,
+.profile-hud__links a:focus-visible,
+.profile-hud__quick-tags span:hover,
+.profile-hud__skills span:hover,
+.profile-hud__gif:hover,
+.profile-hud__resume:hover,
+.profile-hud__resume:focus-visible {
+  transform: translate3d(-3px,-3px,0) !important;
+  border-color: var(--accent-primary);
+  box-shadow:
+    5px 5px 0 color-mix(in srgb, var(--accent-primary) 72%, transparent),
+    9px 11px 22px -10px var(--glow-color);
+  z-index: 3;
+}
+
+/* Make the animation / dancing-developer panel react exactly like the icon cards. */
+.profile-hud__gif:hover .profile-hud__lottie,
+.profile-hud__gif:hover img {
+  transform: translate3d(0,0,12px) scale(1.012);
+}
+.profile-hud__gif .profile-hud__lottie,
+.profile-hud__gif img {
+  transition: transform .28s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Give the small chips a slightly softer depth so their size never visually jumps. */
+.profile-hud__quick-tags span:hover,
+.profile-hud__skills span:hover {
+  transform: translate3d(-2px,-2px,0) !important;
+  box-shadow:
+    3px 3px 0 color-mix(in srgb, var(--accent-primary) 68%, transparent),
+    7px 8px 16px -10px var(--glow-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-hud__links a,
+  .profile-hud__quick-tags span,
+  .profile-hud__skills span,
+  .profile-hud__gif,
+  .profile-hud__gif .profile-hud__lottie,
+  .profile-hud__gif img { transition:none; }
+}
+\n\n/* ===== Site-wide theme-aware 3D layer for every card-3d surface =====
+   Visual-only: extends the sidebar hover language to all existing cards. */
+.card-3d:hover .card-3d__inner,
+.card-3d:focus-within .card-3d__inner {
+  box-shadow:
+    6px 6px 0 color-mix(in srgb, var(--accent-primary) 72%, transparent),
+    11px 13px 25px -11px var(--glow-color),
+    var(--shadow-card-hover);
+}
+
+/* Quiet cards keep the same geometry but still receive the themed rear layer. */
+.card-3d--quiet:hover .card-3d__inner,
+.card-3d--quiet:focus-within .card-3d__inner {
+  box-shadow:
+    5px 5px 0 color-mix(in srgb, var(--accent-primary) 68%, transparent),
+    10px 12px 22px -11px var(--glow-color),
+    var(--shadow-card-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d:hover .card-3d__inner,
+  .card-3d:focus-within .card-3d__inner,
+  .card-3d--quiet:hover .card-3d__inner,
+  .card-3d--quiet:focus-within .card-3d__inner {
+    transform:none;
+    box-shadow:
+      6px 6px 0 color-mix(in srgb, var(--accent-primary) 72%, transparent),
+      11px 13px 25px -11px var(--glow-color),
+      var(--shadow-card-hover);
+  }
+}

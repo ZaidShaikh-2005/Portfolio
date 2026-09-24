@@ -404,7 +404,7 @@
     var roleEl = document.querySelector('[data-role-typing]');
     if (!nameEl || !roleEl) return;
 
-    var names = ['Zaid Shaikh', 'ज़ैद शेख', 'زید شیخ', 'ザイド・シャイフ', '扎伊德·谢赫', 'Заид Шейх'];
+    var names = ['Zaid Shaikh', 'Zaid शेख', 'Zaid شیخ', 'Zaid シャイフ', 'Zaid 谢赫', 'Zaid Шейх'];
     var roles = ['Software Developer', 'Embedded Systems & IoT', 'AI/ML Enthusiast', 'Python • C++ • Django', 'Building Real-World Solutions'];
     if (prefersReducedMotion) { nameEl.textContent = names[0]; roleEl.textContent = roles[0]; return; }
 
@@ -470,6 +470,44 @@
   }
 
 
+
+
+  /*-----------------------------------*\
+    #IN-PAGE RESUME VIEWER
+  \*-----------------------------------*/
+  function initResumeViewer() {
+    var viewer = document.querySelector('[data-resume-viewer]');
+    var triggers = document.querySelectorAll('[data-resume-open]');
+    if (!viewer || !triggers.length) return;
+
+    var closeBtn = viewer.querySelector('[data-resume-close]');
+    var backdrop = viewer.querySelector('[data-resume-backdrop]');
+    var lastFocused = null;
+
+    function openResume() {
+      lastFocused = document.activeElement;
+      viewer.classList.add('is-open');
+      viewer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('has-resume-open');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeResume() {
+      viewer.classList.remove('is-open');
+      viewer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('has-resume-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    triggers.forEach(function (trigger) { trigger.addEventListener('click', openResume); });
+    if (closeBtn) closeBtn.addEventListener('click', closeResume);
+    if (backdrop) backdrop.addEventListener('click', closeResume);
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && viewer.classList.contains('is-open')) closeResume();
+    });
+  }
+
+
   /*-----------------------------------*\
     #INIT
   \*-----------------------------------*/
@@ -481,6 +519,7 @@
     initProjectFilters();
     initContactForm();
     initAvatarLightbox();
+    initResumeViewer();
     initProfileTyping();
     initCardTilt();
   });
