@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">ASHA Care</title>
+  <desc id="desc">A community healthcare illustration with family records and a medical cross.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071e25"/><stop offset="1" stop-color="#163b3d"/></linearGradient>
+    <linearGradient id="tile" x2="1" y2="1"><stop stop-color="#5be0b7"/><stop offset="1" stop-color="#28b5b0"/></linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.2" fill="#d1f9eb" opacity=".09"/></pattern>
+  </defs>
+  <rect width="960" height="560" fill="url(#bg)"/>
+  <rect width="960" height="560" fill="url(#dots)"/>
+  <circle cx="840" cy="72" r="230" fill="#2fb991" opacity=".06"/>
+  <circle cx="78" cy="510" r="190" fill="#2fb991" opacity=".08"/>
+  <rect x="88" y="112" width="784" height="336" rx="28" fill="#061820" opacity=".5" stroke="#599b8c" stroke-opacity=".3"/>
+  <rect x="133" y="153" width="66" height="66" rx="18" fill="url(#tile)"/>
+  <path d="M166 168v36m-18-18h36" stroke="#062f35" stroke-width="11" stroke-linecap="round"/>
+  <text x="219" y="196" fill="#e6fff3" font-family="Arial, sans-serif" font-size="45" font-weight="700">ASHA Care</text>
+  <text x="135" y="257" fill="#a4cbbd" font-family="Arial, sans-serif" font-size="20">Family &amp; Community Management</text>
+  <g transform="translate(133 290)">
+    <rect width="442" height="112" rx="14" fill="#15383a" stroke="#356260"/>
+    <circle cx="39" cy="37" r="13" fill="#73d8b5"/>
+    <path d="M17 85v-7a22 22 0 0 1 44 0v7" fill="#73d8b5"/>
+    <text x="81" y="45" fill="#d8f5e7" font-family="Arial, sans-serif" font-size="20" font-weight="600">Family &amp; member records</text>
+    <text x="81" y="76" fill="#87b7a7" font-family="Arial, sans-serif" font-size="16">Organised. Searchable. Accessible.</text>
+  </g>
+  <g transform="translate(629 185)">
+    <rect x="6" y="8" width="171" height="213" rx="20" fill="#031419" opacity=".5"/>
+    <rect width="171" height="213" rx="20" fill="#224a48" stroke="#73d8b5" stroke-width="2"/>
+    <rect x="45" y="-9" width="82" height="27" rx="9" fill="#73d8b5"/>
+    <path d="M86 47v51m-25-25h50" stroke="#83e7c2" stroke-width="13" stroke-linecap="round"/>
+    <path d="M31 131h109m-109 24h79m-79 24h94" stroke="#80b4a3" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="155" cy="193" r="36" fill="#5bdbaf" stroke="#0a2b2d" stroke-width="6"/>
+    <path d="m141 194 10 10 19-23" fill="none" stroke="#103b38" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

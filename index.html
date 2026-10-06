@@ -19,6 +19,7 @@
   <!-- styles -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/common.css">
+  <link rel="stylesheet" href="./assets/css/music.css">
   <link rel="stylesheet" href="./assets/css/index.css">
 
   <!-- fonts -->
@@ -129,6 +130,14 @@
           <li><a href="projects.html" class="hud-nav__link">Projects</a></li>
           <li><a href="contact.html" class="hud-nav__link">Comms</a></li>
         </ul>
+        <div class="hud-nav__controls">
+          <button class="music-control" type="button" data-music-toggle aria-controls="portfolio-music" aria-label="Play background music" aria-pressed="false" title="Play music — Quiet Worlds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+              <path class="music-control__waves" d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"></path>
+              <path class="music-control__slash" d="m16 9 5 6m0-6-5 6"></path>
+            </svg>
+          </button>
         <div class="theme-switcher" data-theme-switcher>
           <button class="theme-switcher__btn" type="button" data-theme-toggle aria-haspopup="listbox" aria-expanded="false" aria-label="Select color theme" title="Change appearance">
             <ion-icon name="color-palette-outline" class="theme-switcher__icon" aria-hidden="true"></ion-icon>
@@ -139,6 +148,7 @@
             <li role="option" data-theme-option="arcade-dark" aria-selected="false"><button type="button" class="theme-switcher__option" data-theme-value="arcade-dark"><ion-icon name="game-controller-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Arcade Dark</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
             <li role="option" data-theme-option="arcade-light" aria-selected="false"><button type="button" class="theme-switcher__option" data-theme-value="arcade-light"><ion-icon name="extension-puzzle-outline" class="theme-switcher__option-icon" aria-hidden="true"></ion-icon><span class="theme-switcher__option-label">Arcade Light</span><ion-icon name="checkmark" class="theme-switcher__check"></ion-icon></button></li>
           </ul>
+        </div>
         </div>
       </nav>
 
@@ -217,7 +227,7 @@
                     <a href="projects.html" class="explore-card__link">
                     <div class="explore-card__icon"><ion-icon name="planet-outline"></ion-icon></div>
                     <h4 class="explore-card__title">Projects</h4>
-                    <p class="explore-card__text">MedIntel, ParkFlow, LiFiLink — explored project worlds.</p>
+                    <p class="explore-card__text">MedIntel, ParkFlow, ASHA Care & LiFiLink — explored project worlds.</p>
                     </a>
                 </div>
               </div>
@@ -275,7 +285,12 @@
 
   <!-- scripts -->
   <script type="module" src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
+  <audio id="portfolio-music" data-background-music loop preload="auto">
+    <source src="./assets/audio/quiet-worlds.mp3" type="audio/mpeg">
+  </audio>
+  <span class="music-status" data-music-status role="status" aria-live="polite" aria-atomic="true"></span>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/music.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

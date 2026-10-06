@@ -1,0 +1,83 @@
+/* Music control shares the portfolio navbar's dimensions and theme colours. */
+.hud-nav__controls {
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.hud-nav__controls .theme-switcher { margin-left: 0; }
+
+.music-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--stone, #303644);
+  border-radius: 0;
+  color: var(--ink-2, #aab3c2);
+  background: color-mix(in srgb, var(--grass, #00f7a1) 10%, var(--panel, #111823));
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.music-control:hover,
+.music-control:focus-visible {
+  color: var(--grass, #00f7a1);
+  background: color-mix(in srgb, var(--grass, #00f7a1) 22%, var(--panel, #111823));
+  box-shadow: inset 0 0 0 1px var(--grass, #00f7a1);
+}
+
+.music-control:focus-visible { outline: 2px solid var(--grass, #00f7a1); outline-offset: -3px; }
+.music-control svg { width: 20px; height: 20px; flex-shrink: 0; }
+.music-control__waves { display: none; }
+.music-control.is-playing { color: var(--grass, #00f7a1); }
+.music-control.is-playing .music-control__waves { display: block; }
+.music-control.is-playing .music-control__slash { display: none; }
+
+.music-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1023px) {
+  .music-control { width: 44px; min-width: 44px; }
+}
+
+@media (max-width: 767px) {
+  .hud-nav__list { flex-wrap: nowrap; justify-content: space-evenly; }
+  .hud-nav__link { font-size: clamp(6px, 1.65vw, 9px); padding: 18px 5px; }
+}
+
+@media (max-width: 479px) {
+  .music-control,
+  .hud-nav__controls .theme-switcher__btn { width: 40px; min-width: 40px; }
+}
+
+/* The standalone contribution game uses the same music preference. */
+.game-music-control {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 50;
+  height: 44px;
+  border: 1px solid #303644;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-control { transition: none; }
+}
