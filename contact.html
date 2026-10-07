@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="./assets/css/common.css">
   <link rel="stylesheet" href="./assets/css/music.css">
   <link rel="stylesheet" href="./assets/css/contact.css">
-  <link rel="stylesheet" href="./assets/css/companion.css">
 
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -240,33 +239,6 @@
 
     </div>
 
-
-    <!-- ORIGINAL 3D CODING COMPANION -->
-    <aside class="companion-panel" data-companion aria-label="Byte, your coding companion">
-      <button class="companion-heading" type="button" data-companion-toggle aria-controls="companion-body" aria-expanded="false" aria-label="Show or hide Byte, the 3D character">
-        <span><span class="companion-heading__eyebrow">PLAYER TWO</span><span class="companion-heading__name">Byte</span></span>
-        <span class="companion-heading__icon" aria-hidden="true">+</span>
-      </button>
-      <div class="companion-body" id="companion-body" data-companion-body>
-        <div class="companion-stage">
-          <img class="companion-poster" src="./assets/images/byte-companion.png" alt="Byte, a friendly cartoon robot in blue and ivory armour" width="560" height="800" loading="lazy">
-          <canvas class="companion-canvas" data-companion-canvas role="img" tabindex="0" aria-label="Interactive 3D cartoon robot Byte. Drag or use arrow keys to rotate; press Home to reset." aria-describedby="companion-hint"></canvas>
-        </div>
-        <div class="companion-controls" aria-label="Character controls">
-          <button class="companion-control" type="button" data-companion-wave>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v6c0 4-3 7-7 7-3 0-5-2-6-4l-3-5a1.5 1.5 0 0 1 2.5-1.5L8 14"></path></svg>
-            <span>Wave</span>
-          </button>
-          <button class="companion-control" type="button" data-companion-motion aria-pressed="true" aria-label="Pause character animation"><span data-companion-motion-label>Pause</span></button>
-          <button class="companion-control companion-control--icon" type="button" data-companion-reset aria-label="Reset character view" title="Reset view">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"></path></svg>
-          </button>
-        </div>
-        <p class="companion-hint" id="companion-hint" data-companion-hint>Drag to rotate · Arrow keys work too</p>
-        <p class="companion-status" data-companion-status role="status" aria-live="polite">Ready for the next build.</p>
-      </div>
-    </aside>
-
   </main>
 
 
@@ -300,7 +272,6 @@
   <span class="music-status" data-music-status role="status" aria-live="polite" aria-atomic="true"></span>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/music.js" defer></script>
-  <script src="./assets/js/companion.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
