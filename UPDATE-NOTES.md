@@ -1,5 +1,15 @@
 # Portfolio update
 
+- Added **Byte**, an original cartoon robot rendered as a live 3D character in
+  a right-side panel on the five main portfolio pages.
+- Drag the character or use arrow keys to rotate it. **Wave** makes Byte greet
+  the visitor, **Pause / Play** controls idle motion, and **Reset view** restores
+  the initial pose. The model's accent colours follow the selected theme.
+- The character panel collapses on smaller screens. Animations start paused
+  when the device requests reduced motion, and rendering pauses offscreen or
+  when the tab is hidden. A locally bundled poster provides a visual fallback.
+- The 3D model and renderer are original, local code. No Sketchfab account,
+  model download, extra CDN, or API key is needed. See `docs/3D-COMPANION.md`.
 - Added **ASHA Care** to Project Worlds, with an original healthcare illustration,
   technology tags, project details, the ₹5,000 delivery, and the repository link
   already used in this portfolio's README.
